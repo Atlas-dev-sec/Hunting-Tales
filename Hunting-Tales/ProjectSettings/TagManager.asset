@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - DemonEnemy
+  - Hive
+  - Bottle
   layers:
   - Default
   - TransparentFX
