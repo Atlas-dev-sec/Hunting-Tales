@@ -11,6 +11,7 @@ public class ThirdPersonCam : MonoBehaviour
     public Rigidbody playerRb;
     public float rotationSpeed;
     
+    public Vector3 viewDir;
     public CameraStyle currentStyle;
     public enum CameraStyle
     {
@@ -30,7 +31,7 @@ public class ThirdPersonCam : MonoBehaviour
     {
         //MovePlayer();
         // rotate orientation
-        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
 
         // rotate and move player object
