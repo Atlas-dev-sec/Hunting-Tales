@@ -10,10 +10,10 @@ PrefabInstance:
     - target: {fileID: 3417790675887182639, guid: 6d303159065194643aa4c6faf65277bd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b576bfd5e7956354492ae4c6adfa8479, type: 2}
+      objectReference: {fileID: 2100000, guid: 9561352871fdb467a9a3983f224edf9b, type: 2}
     - target: {fileID: 3866093309031720211, guid: 6d303159065194643aa4c6faf65277bd, type: 3}
       propertyPath: m_Name
-      value: PUSHILIN_boulder Variant (1)
+      value: Bush
       objectReference: {fileID: 0}
     - target: {fileID: 4534227404430376873, guid: 6d303159065194643aa4c6faf65277bd, type: 3}
       propertyPath: m_RootOrder
