@@ -16,6 +16,6 @@ public class BulletCounterView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textBulletPro.text = currentBullets.amountBullets.ToString("F0");
+       textBulletPro.text = currentBullets.amountBullets.ToString("F0");
     }
 }

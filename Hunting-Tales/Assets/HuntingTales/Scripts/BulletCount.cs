@@ -11,7 +11,7 @@ public class BulletCount : MonoBehaviour
     private void Start()
     {
         objectToFind = GameObject.FindGameObjectWithTag("Bottle");
-        Debug.Log(objectToFind);
+       
     }
 
     private void Update()
