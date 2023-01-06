@@ -7,16 +7,18 @@ public class DemonScript : MonoBehaviour
     private float damage = 0.1f;
     private CaptureScript captureScript;
     private EnemyHealthBar enemyHealthBar;
-    public Rigidbody yokaiRb;
-    public float speed;
-    public GameObject playerTarget;
+    private Rigidbody yokaiRb;
+    private float speed;
+    private GameObject playerTarget;
    
     void Start()
     {
+        playerTarget = GameObject.Find("Player");
+        yokaiRb = GetComponent<Rigidbody>();
+        speed = 2.0f;
         captureScript = FindObjectOfType<CaptureScript>();
         enemyHealthBar = FindObjectOfType<EnemyHealthBar>(); 
         enemyLife = 50.0f;
-        playerTarget = GameObject.Find("Player");
     }
 
     void FixedUpdate() 
@@ -24,8 +26,10 @@ public class DemonScript : MonoBehaviour
         CaptureEnemy();
     }
 
+    // main capture enemy method...
     private void CaptureEnemy()
     {
+        // if the bool isCapturing is set to true then add force to the enemy rigidbody, also checks and update the enemy life and enemy's heath bar... 
         if (CaptureScript.isCapturing)
         {
             yokaiRb.AddForce(Vector3.forward * speed * Time.deltaTime, ForceMode.Impulse);
@@ -35,10 +39,12 @@ public class DemonScript : MonoBehaviour
             if (enemyLife <= 0)
                 captureScript.DetachEnemy();
         }else{
+            // if is not capturing always look at the player position...
             transform.LookAt(playerTarget.transform);
         }
     }
 
+    // damage enemy method subtracts damage tot he enemy's life...
     private void DamageEnemy()
     {
         enemyLife -= damage;

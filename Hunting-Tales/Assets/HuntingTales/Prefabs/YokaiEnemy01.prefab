@@ -52,9 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb159b2810a6694da0de1cfcb1e7396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   yokaiRb: {fileID: 650074762762816783}
   speed: 2
+  playerTarget: {fileID: 0}
 --- !u!65 &1075687761724161218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.46, y: 2.53, z: 6.3}
+  m_Size: {x: 4.73, y: 2.53, z: 5.51}
   m_Center: {x: 0, y: -0.61, z: 0}
 --- !u!114 &892475525270761917
 MonoBehaviour:
@@ -90,10 +90,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389335211751216348}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 7
   m_AngularDrag: 7
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116

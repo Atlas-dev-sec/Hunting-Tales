@@ -4,34 +4,55 @@ using UnityEngine;
 
 public class ThirdPersonDash : MonoBehaviour
 {
-    //PlayerController moveScript;
-    PlayerMovement moveScript;
-    public float dashTime;
+    public bool canJump;
+    public bool canDash;
+    private float abilityCoolDown;
+   
     // Start is called before the first frame update
     void Start()
     {
-        //moveScript = GetComponent<PlayerController>();
-        moveScript = GetComponent<PlayerMovement>();
+        abilityCoolDown = 3;
+        canJump = true;
+        canDash = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+       HorizontalDash();
+       JumpDash();
+    }
+
+    // SetBoolFalse method that sets both booleans back to false in order to avoid keep dashing...
+    private void SetBoolFalse()
+    {
+        canJump = false;
+        canDash = false;
+    }
+
+    // method that performs the horizontal dash of the player
+    private void HorizontalDash()
+    {
+        // if the left click is pressed and canDash is equal to true triggers the coroutine
+         if (Input.GetMouseButtonDown(0) && canDash)
         {
-            StartCoroutine(Dash());
+            // call to the SetBoolFalse method in order to avoid keep jumping or dashing...
+            SetBoolFalse();
+            StartCoroutine(GetComponent<PlayerMovement>().Dash(abilityCoolDown));
+            
         }
     }
 
-    IEnumerator Dash()
+    // method that performs the jump dash of the player
+    private void JumpDash()
     {
-        float startTime = Time.time;
-
-        while(Time.time < startTime + dashTime)
+        // if the right click is pressed and canJump is equal to true triggers the coroutine
+        if (Input.GetMouseButtonDown(1) && canJump)
         {
-            moveScript.DashPlayer();
-            yield return null;
-        }    
-        moveScript.dashParticle.Stop();
+            // call to the SetBoolFalse method in order to avoid keep jumping or dashing...
+            SetBoolFalse();
+            StartCoroutine(GetComponent<PlayerMovement>().JumpDash(abilityCoolDown));
+        }
     }
+    
 }

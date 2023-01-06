@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 42577
+  controlID: 46260
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 42567
+  controlID: 46224
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 42568
+  controlID: 46188
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0aaefdfff4b6fdff36c2fdff92c2fdff38c4fdff42cdfdffe2d2fdff0ad4fdff6adbfdff72e0fdffd6f0fdffd8f0fdffdaf0fdff7209feff300cfeffd617feff9a23feffae35feff8238feffb639feffb44bfefff84dfeff0055fefffc59fefff65dfeff305efeff5069feff5288feffaa88feff38aafeff3eadfeffe8b4feffecbaffffeebaffff98eaffff38eeffff90f9ffff18fbffff6a5c00008c5c0000965c0000a05c0000b25c0000ec6700001068000038a301005ca30100f06a0200
+      m_SelectedIDs: a4c30200
+      m_LastClickedID: 181156
+      m_ExpandedIDs: be9afdff0aaefdfff4b6fdff36c2fdff92c2fdff38c4fdff42cdfdffe2d2fdff0ad4fdff6adbfdff72e0fdffd6f0fdffd8f0fdffdaf0fdff7209feff300cfeffd617feff9a23feffae35feff8238feffb639feffb44bfefff84dfeff0055fefffc59fefff65dfeff305efeff5069feff5288feffaa88feff38aafeff3eadfeffe8b4feffecbaffffeebaffff98eaffff38eeffff90f9ffff18fbffff6a5c00008c5c0000965c0000a05c0000b25c0000ec6700001068000038a301005ca30100f06a0200ccc30200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -26.72079, y: 2.3901348, z: -12.889872}
+    m_Target: {x: -14.478504, y: 2.602234, z: -10.958829}
     speed: 2
-    m_Value: {x: -26.72079, y: 2.3901348, z: -12.889872}
+    m_Value: {x: -14.478504, y: 2.602234, z: -10.958829}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 10, y: 10}
@@ -551,13 +551,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.047694188, y: -0.8891732, z: 0.43970013, w: 0.11730766}
+    m_Target: {x: -0.14742586, y: -0.8539285, z: 0.4098323, w: -0.28479782}
     speed: 2
-    m_Value: {x: 0.047870073, y: -0.88851225, z: 0.44103318, w: 0.11723593}
+    m_Value: {x: 0.14742586, y: 0.85392845, z: -0.4098323, w: 0.28479782}
   m_Size:
     m_Target: 12.527822
     speed: 2
-    m_Value: 11.988346
+    m_Value: 12.527822
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -601,14 +601,14 @@ MonoBehaviour:
     y: 470.4
     width: 1188.8
     height: 260.4
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 10}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 10}
   - {fileID: 11}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -650,22 +650,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/HuntingTales/Prefabs/UI Prefabs
+    - Assets/HuntingTales/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/HuntingTales/Prefabs/UI Prefabs
+  - Assets/HuntingTales/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\ALCIDES\Desktop\Hunting-Tales\Hunting-Tales
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 47}
-    m_SelectedIDs: da670200
-    m_LastClickedID: 157658
-    m_ExpandedIDs: 00000000505d00001c5f00001e5f0000265f0000
+    m_SelectedIDs: 285f0000
+    m_LastClickedID: 24360
+    m_ExpandedIDs: 00000000505d00001e5f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -771,7 +771,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 544
-    width: 1171.8
+    width: 1187.8
     height: 239.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:

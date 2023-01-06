@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0.0f;
         }
         else
-        {
+        {   Cursor.visible = false;
             pauseScreen.SetActive(false);
             isPaused = false;
             Time.timeScale = 1.0f;

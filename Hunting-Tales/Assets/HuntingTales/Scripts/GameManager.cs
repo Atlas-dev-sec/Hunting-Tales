@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
-    
+    private GameObject player;
     public bool gameOver;
     public bool gameWon;
     
@@ -20,22 +19,21 @@ public class GameManager : MonoBehaviour
         CheckLoseCondition();
     }
 
+    // methods that checks for the win condition...
     private void CheckWinCondition()
-    {
+    { 
         if (player.GetComponent<CaptureScript>().enemyCaptured == true)
         {
-            Debug.Log("GAME WON!!!");
             gameWon = true;
         }
     }
 
+    // method that checks for the Lose Condition...
     private void CheckLoseCondition()
-    {
+    {  
         if (player.GetComponent<PlayerMovement>().currentHealth <= 0)
         {
-            Debug.Log("GAMEOVER");
             gameOver = true;
-            // in here put the logic to set the game over UI
         }
     }
 }

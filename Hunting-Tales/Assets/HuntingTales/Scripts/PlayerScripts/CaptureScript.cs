@@ -9,12 +9,13 @@ public class CaptureScript : MonoBehaviour
 {
     public GameObject child;
     public Transform parent;
-    public int speed = 10;
+    public Transform target;
     public static bool isCapturing;
     public static bool canBeCapture;
     public bool enemyCaptured;
-    public float t;
-    public Transform target;
+    private float t;
+    private float poschildx;
+    private float poschildz;
     void Awake() 
     {
         isCapturing = false;   
@@ -22,23 +23,46 @@ public class CaptureScript : MonoBehaviour
 
     void Start()
     {
+        t = 0.01f;
         child = GameObject.FindWithTag("DemonEnemy");
+        poschildx = child.transform.position.x;
+        poschildz = child.transform.position.z;
     }
     void FixedUpdate()
     {
         if (child == null)
         {
-            Debug.Log("yokai enemy destroyed");
             enemyCaptured = true;
         }
-        if (target == null){
+        if (target == null)
+        {
             target = parent;
         }
+        
+        CaptureUserInput();
 
-        Vector3 playerPos = transform.position; 
-        Vector3 targetPos = target.position;
-    
-        if (Input.GetKeyDown(KeyCode.X) && canBeCapture == true)
+        if (DemonScript.enemyLife <= 0)
+        {
+            isCapturing = false;
+        }
+
+        if (!enemyCaptured)
+        {
+            // variables needed to check every frame for the player position and target position (yokai)...
+            Vector3 playerPos = transform.position; 
+            Vector3 targetPos = child.transform.position;
+            if (isCapturing)
+            {
+                Capturing(playerPos, targetPos);
+            }
+        }
+        
+    }
+
+    // method that checks every frame if user pressed X button to capture or Z button to detach the enemy....
+    private void CaptureUserInput()
+    {
+        if (Input.GetKeyDown(KeyCode.X) && canBeCapture)
         {
             CaptureEnemy(parent);
             isCapturing = true;
@@ -49,28 +73,31 @@ public class CaptureScript : MonoBehaviour
             isCapturing = false;
             DetachEnemy();
         }
-
-        if (DemonScript.enemyLife < 0){
-            isCapturing = false;
-        }
-       
-        if (isCapturing){
-            transform.position = Vector3.Lerp(playerPos, targetPos , t);
-        }
     }
 
-    public void CaptureEnemy(Transform newParent)
+    // method that makes the enemy yokai game object a child of player...
+    private void CaptureEnemy(Transform newParent)
     {
         child.transform.SetParent(newParent);
-        Vector3 pos = new Vector3(transform.position.x + 1.3f, child.transform.position.y, transform.position.z + 1.3f);
-        child.transform.position = pos;    
     }
 
+    // methods that moves the player game object towards the target position in this case the enemy yokai...
+    private void Capturing(Vector3 playerPos, Vector3 targetPos)
+    {
+        transform.position = Vector3.Lerp(playerPos, targetPos , t);
+        poschildx = transform.position.x;   
+        poschildz = transform.position.z; 
+    }
+
+    // method that detach enemy child from the player game object...
     public void DetachEnemy()
     {
         child.transform.SetParent(null);
     }
 
+    /*
+    Trigger enter that sets canBeCapture bool to true, in order to check if player is within the range of capture...
+    */
     private void OnTriggerEnter(Collider other) 
     {
         if (other.CompareTag("DemonEnemy"))
@@ -79,6 +106,9 @@ public class CaptureScript : MonoBehaviour
         }
     }
 
+    /*
+    Trigger exit that sets canBeCapture bool to false, in order to check if player is out of the capture range...
+    */
     private void OnTriggerExit(Collider other) 
     {
         if (other.CompareTag("DemonEnemy"))

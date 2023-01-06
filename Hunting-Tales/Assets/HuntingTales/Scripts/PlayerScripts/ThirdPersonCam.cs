@@ -4,49 +4,24 @@ using UnityEngine;
 
 public class ThirdPersonCam : MonoBehaviour
 {
-    [Header("References")]
-    public Transform orientation;
-    public Transform player;
-    public Transform playerObj;
-    public Rigidbody playerRb;
-    public float rotationSpeed;
-    
-    public Vector3 viewDir;
-    public CameraStyle currentStyle;
-    public enum CameraStyle
-    {
-        Basic,
-        Combat,
-        Topdown
-    }
-    // Start is called before the first frame update
+    private GameManager gameManager;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }
+    }  
 
-    // Update is called once per frame
     void Update()
     {
-        //MovePlayer();
-        // rotate orientation
-        viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
-        orientation.forward = viewDir.normalized;
-
-        // rotate and move player object
-        if (currentStyle == CameraStyle.Basic || currentStyle == CameraStyle.Topdown)
+        if (gameManager.gameOver == true)
         {
-            float verticalInput = Input.GetAxis("Vertical");
-            float horizontalInput = Input.GetAxis("Horizontal");
-            Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-            if(inputDir != Vector3.zero)
-                playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
-    
+            Cursor.visible = true;   
         }
-        
 
-    }
-        
+        if (gameManager.gameWon == true)
+        {
+            Cursor.visible = true;
+        }
+    }      
 }
