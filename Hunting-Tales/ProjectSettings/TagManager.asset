@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DemonEnemy
+  - Ground
+  - Heal
+  - Enemy
+  - Pause
   layers:
   - Default
   - TransparentFX
