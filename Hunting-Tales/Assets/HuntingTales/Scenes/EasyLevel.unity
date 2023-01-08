@@ -2797,7 +2797,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253620981}
-  m_LocalRotation: {x: 0.42498952, y: 2.879107e-15, z: -1.2433755e-15, w: 0.9051983}
+  m_LocalRotation: {x: 0.42498952, y: -0.00000002697701, z: 0.000000012665675, w: 0.9051983}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2903,6 +2903,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271905824}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1329311472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5719283163099485463, guid: 6884c15dd4a2cfe428388d8a3047ee2c, type: 3}
+  m_PrefabInstance: {fileID: 5719283164470726459}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d2fb6436feb0640bb84a52a70fa59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1342704620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,7 +2992,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342704620}
-  m_LocalRotation: {x: 0.4458719, y: 0.00000003053702, z: -0.000000015211315, w: 0.8950968}
+  m_LocalRotation: {x: 0.4458719, y: -0.000000030802756, z: 0.000000015343684, w: 0.8950968}
   m_LocalPosition: {x: 1.1603832, y: 9.15, z: -7.347479}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3612,7 +3623,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808855839}
-  m_LocalRotation: {x: 0.4458719, y: 0.0000000148627874, z: -0.000000007403556, w: 0.8950968}
+  m_LocalRotation: {x: 0.4458719, y: -0.000000015401378, z: 0.000000007671843, w: 0.8950968}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4595,7 +4606,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087353207}
-  m_LocalRotation: {x: 0.4666034, y: -0.000000019296246, z: 0.0000000101798, w: 0.88446665}
+  m_LocalRotation: {x: 0.46660343, y: -0.000000026359162, z: 0.000000013905867, w: 0.88446665}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4853,6 +4864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 3083024149061357484, guid: 469c1aac8db8667498aa71285cfbafbf, type: 3}
+      propertyPath: m_TagString
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 3083024149061357485, guid: 469c1aac8db8667498aa71285cfbafbf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4937,6 +4952,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3083024149061357486, guid: 469c1aac8db8667498aa71285cfbafbf, type: 3}
+      propertyPath: oniEnemyScript
+      value: 
+      objectReference: {fileID: 1329311472}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469c1aac8db8667498aa71285cfbafbf, type: 3}
 --- !u!1001 &4925405306847706407
@@ -5099,6 +5118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedOniEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5719283163099485458, guid: 6884c15dd4a2cfe428388d8a3047ee2c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5719283163099485463, guid: 6884c15dd4a2cfe428388d8a3047ee2c, type: 3}
       propertyPath: target
       value: 
@@ -5163,6 +5186,10 @@ PrefabInstance:
     - target: {fileID: 8233334089180032231, guid: a4b3a84645d662a4db54c5235425a760, type: 3}
       propertyPath: m_Name
       value: GreenOniEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233334089180032231, guid: a4b3a84645d662a4db54c5235425a760, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8233334089180032248, guid: a4b3a84645d662a4db54c5235425a760, type: 3}
       propertyPath: target

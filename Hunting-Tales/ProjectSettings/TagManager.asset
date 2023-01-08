@@ -7,6 +7,8 @@ TagManager:
   - DemonEnemy
   - Ground
   - Heal
+  - Enemy
+  - Pause
   layers:
   - Default
   - TransparentFX
