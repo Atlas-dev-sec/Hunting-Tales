@@ -5,12 +5,18 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameObject player;
+    private GameObject pauseScreen;
     public bool gameOver;
     public bool gameWon;
     
+    void Awake() 
+    {
+        pauseScreen = GameObject.FindWithTag("Pause");
+    }
     void Start()
     {
         player = GameObject.Find("Player");
+        pauseScreen.SetActive(true);
     }
 
     void Update()
@@ -25,6 +31,7 @@ public class GameManager : MonoBehaviour
         if (player.GetComponent<CaptureScript>().enemyCaptured == true)
         {
             gameWon = true;
+            pauseScreen.SetActive(false);
         }
     }
 
@@ -34,6 +41,7 @@ public class GameManager : MonoBehaviour
         if (player.GetComponent<PlayerMovement>().currentHealth <= 0)
         {
             gameOver = true;
+            pauseScreen.SetActive(false);
         }
     }
 }
