@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float enemyDamageAttack = 10.0f;
     public HealthBar healthBar;
 
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,8 @@ public class EnemyAI : MonoBehaviour
 
         // checking is the player is inside the enemy chasing range
         else if (distanceToTarget <= chaseRange)
-            isProvoked = true;       
+            isProvoked = true;  
+        
     }
 
     // method that decides between Chase the player or Attack the player...
@@ -42,7 +44,8 @@ public class EnemyAI : MonoBehaviour
     {
         // if the distance to the player is within the chase range enemry starts persecution...
         if(distanceToTarget <= chaseRange)
-           ChaseTarget(); 
+           ChaseTarget();
+           
 
         // if the distance to the player is less than the stoppping distance starts attacking the player...
         if (distanceToTarget <= navMeshAgent.stoppingDistance)
