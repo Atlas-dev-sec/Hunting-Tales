@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d2fb6436feb0640bb84a52a70fa59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1476544385345036113, guid: 096de8c1f43ee4c4d989023bcaf7c3fb, type: 3}
   chaseRange: 5
   enemyDamageAttack: 0.1
   healthBar: {fileID: 0}

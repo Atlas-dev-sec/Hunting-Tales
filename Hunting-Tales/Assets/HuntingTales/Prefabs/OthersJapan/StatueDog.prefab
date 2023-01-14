@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675172750339727841}
   - component: {fileID: 5452271953197251421}
+  - component: {fileID: 8475798563348703793}
   m_Layer: 0
   m_Name: StatueDog
   m_TagString: Untagged
@@ -192,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 5452271953197251419}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.211008, y: 0.63, z: 2.469828}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1221334858985809126}
@@ -213,3 +214,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9096985, y: 0.6988779, z: 0.81939703}
   m_Center: {x: 0.045150757, y: 0.036136955, z: -0.006020099}
+--- !u!54 &8475798563348703793
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5452271953197251419}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
