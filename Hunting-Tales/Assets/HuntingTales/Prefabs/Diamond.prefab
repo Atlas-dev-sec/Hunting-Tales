@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7154130582293150227}
   - component: {fileID: 5449281332510540633}
   - component: {fileID: 8843388107120601037}
-  - component: {fileID: 5449281332510540634}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5449281332510540634
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2161372275818457384}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.06062174, y: 0.05500006, z: 0.07}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6950029777166799345
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7726109805506087755}
+  - component: {fileID: 4794621303594772464}
+  - component: {fileID: 4303054368136586403}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -130,6 +118,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4794621303594772464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950029777166799345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dddf598c9b55e2459d185989b88839e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &4303054368136586403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950029777166799345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09896603, y: 0.066026516, z: 0.08325625}
+  m_Center: {x: -0.0030717563, y: 0.0019263148, z: -0.0022582007}
 --- !u!1001 &4297487461495273966
 PrefabInstance:
   m_ObjectHideFlags: 0

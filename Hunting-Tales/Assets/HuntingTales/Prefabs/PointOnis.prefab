@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8717523293666189629}
   - component: {fileID: 4937659067162780678}
+  - component: {fileID: -8052175580129863115}
+  - component: {fileID: -5722441093931657222}
   m_Layer: 0
   m_Name: PointOnis
   m_TagString: Untagged
@@ -49,3 +51,41 @@ MonoBehaviour:
   - {fileID: 5719283163099485458, guid: 6884c15dd4a2cfe428388d8a3047ee2c, type: 3}
   difficulty: []
   pro: 0.52
+--- !u!195 &-8052175580129863115
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994815501331065109}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &-5722441093931657222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4994815501331065109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d2fb6436feb0640bb84a52a70fa59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1476544385345036113, guid: 096de8c1f43ee4c4d989023bcaf7c3fb, type: 3}
+  chaseRange: 10
+  enemyDamageAttack: 0.2
+  healthBar: {fileID: 0}
