@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   child: {fileID: 389335211751216348, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
   parent: {fileID: 1476544385345036113}
-  target: {fileID: 0}
+  target: {fileID: 1476544385345036113}
   enemyCaptured: 0
 --- !u!114 &1476544386484226963
 MonoBehaviour:

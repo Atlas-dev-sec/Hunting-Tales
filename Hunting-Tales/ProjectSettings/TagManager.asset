@@ -9,6 +9,9 @@ TagManager:
   - Heal
   - Enemy
   - Pause
+  - Bottle
+  - Hive
+  - Weapon
   layers:
   - Default
   - TransparentFX

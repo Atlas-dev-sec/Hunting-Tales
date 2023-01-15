@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 5088687631637046004}
   - component: {fileID: 8156438826515524945}
   - component: {fileID: 6257059728853670299}
+  - component: {fileID: 1222884274737407022}
+  - component: {fileID: 1862663898883361631}
   m_Layer: 0
   m_Name: Statue_Fox
   m_TagString: Untagged
@@ -115,6 +117,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1222884274737407022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608519599199238222}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013506487, y: 0.016786035, z: 0.03752453}
+  m_Center: {x: -0.0007875317, y: 0.00062891596, z: 0.018762264}
+--- !u!114 &1862663898883361631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608519599199238222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964b7921d616b814bb615d6f3305d2f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragments: {fileID: 2932244873437581683, guid: 78e5fb96332ac09448ed5918466a5300, type: 3}
 --- !u!1 &8105446002996926406
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +152,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3043931738931188632}
+  - component: {fileID: 1720232111106246017}
+  - component: {fileID: 408077971943226734}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -147,3 +177,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720232111106246017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8105446002996926406}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964b7921d616b814bb615d6f3305d2f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragments: {fileID: 2932244873437581683, guid: 78e5fb96332ac09448ed5918466a5300, type: 3}
+--- !u!65 &408077971943226734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8105446002996926406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
