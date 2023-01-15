@@ -4899,6 +4899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fragments: {fileID: 421789001225868578, guid: fd0955f9c038dc64cad26c92925d49bb, type: 3}
+  diamond: {fileID: 2527663470581119652, guid: a1be91f832cbcc34bb9851f35e34e3d0, type: 3}
 --- !u!1 &6615724962400858426
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyObject : MonoBehaviour
 {
     public GameObject fragments;
+    public GameObject diamond;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class DestroyObject : MonoBehaviour
     private void OnCollisionEnter(Collision other){
         if(other.gameObject.tag.Equals("Weapon")){
             Instantiate(fragments, transform.position, Quaternion.identity);
+            Instantiate(diamond, transform.position , Quaternion.identity);
             this.gameObject.SetActive(false);
         }
     }
