@@ -6,9 +6,9 @@ public class MainMenu : MonoBehaviour
 {
     public void LoadEasyLevel()
     {
-        SceneManager.LoadScene("EasyLevel");
+        SceneManager.LoadScene("Level");
     }
-
+/*
     public void LoadMediumLevel()
     {
         SceneManager.LoadScene("MediumLevel");
@@ -21,5 +21,5 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
+    }*/
 }
