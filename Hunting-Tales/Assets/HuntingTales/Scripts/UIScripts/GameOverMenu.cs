@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameOverMenu : MonoBehaviour
 {
     private GameObject gameManager;
-    private GameObject player;
+    public GameObject player;
     public GameObject gameOverScreen;
     [SerializeField] string activeScene;
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -46,6 +46,6 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         player.GetComponent<PlayerMovement>().currentHealth = player.GetComponent<PlayerMovement>().maxHealth;
         gameManager.GetComponent<GameManager>().gameOver = false;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("LevelSelectScreen");
     }
 }

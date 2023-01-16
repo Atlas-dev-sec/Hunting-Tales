@@ -13,7 +13,7 @@ public class WinScreenMenu : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -42,6 +42,6 @@ public class WinScreenMenu : MonoBehaviour
         player.GetComponent<PlayerMovement>().currentHealth = player.GetComponent<PlayerMovement>().maxHealth;
         player.GetComponent<CaptureScript>().enemyCaptured = false;
         gameManager.GetComponent<GameManager>().gameWon = false;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("LevelSelectScreen");
     }
 }
