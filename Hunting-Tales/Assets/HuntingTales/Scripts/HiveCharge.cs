@@ -5,6 +5,7 @@ using UnityEngine;
 public class HiveCharge : MonoBehaviour
 {
     public BulletCount currentBullets;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,17 @@ public class HiveCharge : MonoBehaviour
         {
             gameObject.SetActive(false);
             currentBullets.amountBullets = currentBullets.amountBullets + 5;
+            
+         
+            //StartCoroutine(ChargeHive());
+            Invoke("Charge",40);
+            
         }
     }
+    public void Charge(){
+        gameObject.SetActive(true);
+        
+    }
+
+
 }

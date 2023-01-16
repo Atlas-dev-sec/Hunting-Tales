@@ -7,6 +7,7 @@ public class HealthPotion : MonoBehaviour
     private PlayerMovement player;
     public HealthBar healthBar;
     private float healingFactor;
+   
 
     void Start()
     {
@@ -36,6 +37,12 @@ public class HealthPotion : MonoBehaviour
                 healthBar.SetHealth(player.currentHealth);
                 Destroy(gameObject);
             }
+
+
+
+
         }    
     }
+
+
 }

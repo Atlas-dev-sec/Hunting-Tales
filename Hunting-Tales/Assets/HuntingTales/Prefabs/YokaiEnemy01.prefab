@@ -52,9 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb159b2810a6694da0de1cfcb1e7396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yokaiRb: {fileID: 650074762762816783}
-  speed: 2
-  playerTarget: {fileID: 0}
 --- !u!65 &1075687761724161218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81,7 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySlider: {fileID: 3476026896511855592}
-  damageAmount: 50
 --- !u!54 &650074762762816783
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -261,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &892475525005091532
 RectTransform:
   m_ObjectHideFlags: 0

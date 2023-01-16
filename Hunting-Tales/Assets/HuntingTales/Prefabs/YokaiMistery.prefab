@@ -44,6 +44,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: YokaiEnemy01
       objectReference: {fileID: 0}
+    - target: {fileID: 389335211751216348, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650074762762816783, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075687761724161218, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
+      propertyPath: m_Size.x
+      value: 3.9372368
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075687761724161218, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
+      propertyPath: m_Size.z
+      value: 3.3321466
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075687761724161218, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
+      propertyPath: m_Center.x
+      value: -0.015708923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075687761724161218, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
+      propertyPath: m_Center.z
+      value: 0.007256031
+      objectReference: {fileID: 0}
     - target: {fileID: 1076927303732834528, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -62,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6960742152579669386, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.01
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 6960742152579669386, guid: 0f0d6f1f1a197684ab7c1d0a7c858f9c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -107,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6584648950861813873}
     m_Modifications:
     - target: {fileID: 1000011714421220, guid: efebddd0b5766bd499be8b63f581de68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013620582324, guid: efebddd0b5766bd499be8b63f581de68, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -214,7 +242,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.87245065, y: 0.872451, z: 0.87424093}
   m_Center: {x: -0.000000029802322, y: 0.000000014901165, z: 0.42342827}
---- !u!114 &6584648950663201937
+--- !u!114 &1280279522911274726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,9 +251,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6585057416038376822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c24ade212ea93d4f8b78f4af08d541d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e9f16d5e5a3f20409fd9251fff7067d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fragments: {fileID: 421789001225868578, guid: fd0955f9c038dc64cad26c92925d49bb, type: 3}
 --- !u!4 &6588602057004452400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010043812026, guid: efebddd0b5766bd499be8b63f581de68, type: 3}
