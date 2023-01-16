@@ -16,12 +16,16 @@ public class FireFlyShoot : MonoBehaviour
 
     private List<GameObject> pool = new List<GameObject>();
 
+    private Animator hunterAnimator;
+    public Animator bottleAnimator;
+
 
     // Start is called before the first frame update
     void Start()
     {
         bulletPrefab = bullet.GetComponent<Rigidbody>();
         currentBullets = FindObjectOfType<BulletCount>();
+        hunterAnimator = GetComponent<Animator>();
 
         // amountBullets = amountBullets + 5
     }
@@ -32,6 +36,8 @@ public class FireFlyShoot : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && Time.time > startShoot)
 
         {
+            hunterAnimator.SetBool("IsCapturing",true);
+            bottleAnimator.SetBool("IsAim",true);
             if (currentBullets.amountBullets > 0)
             {
                // GameObject obj = GetWeapon();

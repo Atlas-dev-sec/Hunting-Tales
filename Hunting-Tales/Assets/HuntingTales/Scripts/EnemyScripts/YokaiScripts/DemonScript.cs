@@ -9,11 +9,11 @@ public class DemonScript : MonoBehaviour
     private EnemyHealthBar enemyHealthBar;
     private Rigidbody yokaiRb;
     private float speed;
-    private GameObject playerTarget;
+    public GameObject playerTarget;
    
     void Start()
     {
-        playerTarget = GameObject.Find("Player");
+       
         yokaiRb = GetComponent<Rigidbody>();
         speed = 2.0f;
         captureScript = FindObjectOfType<CaptureScript>();

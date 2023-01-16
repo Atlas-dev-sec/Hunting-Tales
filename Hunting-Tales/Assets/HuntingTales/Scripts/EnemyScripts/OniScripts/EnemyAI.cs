@@ -9,17 +9,21 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float chaseRange = 5;
     NavMeshAgent navMeshAgent;
     private float distanceToTarget = Mathf.Infinity;
-    private bool isProvoked = false;
-    private PlayerMovement playerMovementScript;
+    
+    public PlayerMovement playerMovementScript;
     [SerializeField] float enemyDamageAttack = 10.0f;
     public HealthBar healthBar;
+    public Animator animator;
+    public AudioClip hitSound;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        playerMovementScript = GameObject.Find("Player").GetComponent<PlayerMovement>();
-
+        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,14 +31,17 @@ public class EnemyAI : MonoBehaviour
     {
         // checks every frame the distance between target and enemy
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-
-        // if enemy is provoked calls EngageTarget method
-        if (isProvoked)
+        
+        if (distanceToTarget <= chaseRange)
+        {
             EngageTarget();
+        }
 
-        // checking is the player is inside the enemy chasing range
-        else if (distanceToTarget <= chaseRange)
-            isProvoked = true;       
+        if (distanceToTarget >= chaseRange)
+        {
+            DesEngage();
+        }
+        
     }
 
     // method that decides between Chase the player or Attack the player...
@@ -42,23 +49,35 @@ public class EnemyAI : MonoBehaviour
     {
         // if the distance to the player is within the chase range enemry starts persecution...
         if(distanceToTarget <= chaseRange)
+        {
+           
            ChaseTarget(); 
-
+        }
         // if the distance to the player is less than the stoppping distance starts attacking the player...
         if (distanceToTarget <= navMeshAgent.stoppingDistance)
+        {
             AttackTarget();
+            StartCoroutine(HitSoundCoroutine());
+           
+        }
         
     }
 
+    private void DesEngage()
+    {
+       animator.SetBool("IsWalking", false);
+    }
     // method that positions the enemy with the player position...
     private void ChaseTarget()
     {
         navMeshAgent.SetDestination(target.position);
+       animator.SetBool("IsWalking", true);
     }
 
     // method that attacks the enemy also subtracts player health and update the healthbar value...
     private void AttackTarget()
     {
+        //audioSource.PlayOneShot(hitSound);
         playerMovementScript.currentHealth -= enemyDamageAttack;
         healthBar.SetHealth(playerMovementScript.currentHealth);
 
@@ -70,5 +89,13 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);    
+    }
+
+    private IEnumerator HitSoundCoroutine()
+    {
+        
+        yield return new WaitForSeconds(0.75f);
+        audioSource.Play();
+
     }
 }

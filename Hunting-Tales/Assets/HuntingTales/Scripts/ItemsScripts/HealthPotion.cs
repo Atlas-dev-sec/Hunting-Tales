@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class HealthPotion : MonoBehaviour
 {
-    private PlayerMovement player;
+    public PlayerMovement player;
     public HealthBar healthBar;
     private float healingFactor;
    
 
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+       
         healingFactor = 10.0f;
     }
     void OnTriggerEnter(Collider other) 

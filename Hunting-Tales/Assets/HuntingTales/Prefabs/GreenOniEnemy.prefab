@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 8233334089180032248}
   m_Layer: 0
   m_Name: GreenOniEnemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d2fb6436feb0640bb84a52a70fa59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1476544385345036113, guid: 096de8c1f43ee4c4d989023bcaf7c3fb, type: 3}
+  target: {fileID: 0}
   chaseRange: 5
   enemyDamageAttack: 0.1
   healthBar: {fileID: 0}

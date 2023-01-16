@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThirdPersonDash : MonoBehaviour
 {
-    public bool canJump;
+   // public bool canJump;
     public bool canDash;
     private float abilityCoolDown;
    
@@ -12,7 +12,7 @@ public class ThirdPersonDash : MonoBehaviour
     void Start()
     {
         abilityCoolDown = 3;
-        canJump = true;
+        //canJump = true;
         canDash = true;
     }
 
@@ -20,13 +20,13 @@ public class ThirdPersonDash : MonoBehaviour
     void Update()
     {
        HorizontalDash();
-       JumpDash();
+     //  JumpDash();
     }
 
     // SetBoolFalse method that sets both booleans back to false in order to avoid keep dashing...
     private void SetBoolFalse()
     {
-        canJump = false;
+        //canJump = false;
         canDash = false;
     }
 
@@ -44,7 +44,7 @@ public class ThirdPersonDash : MonoBehaviour
     }
 
     // method that performs the jump dash of the player
-    private void JumpDash()
+   /* private void JumpDash()
     {
         // if the right click is pressed and canJump is equal to true triggers the coroutine
         if (Input.GetMouseButtonDown(1) && canJump)
@@ -53,6 +53,6 @@ public class ThirdPersonDash : MonoBehaviour
             SetBoolFalse();
             StartCoroutine(GetComponent<PlayerMovement>().JumpDash(abilityCoolDown));
         }
-    }
+    }*/
     
 }

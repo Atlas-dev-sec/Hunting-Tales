@@ -16,6 +16,8 @@ public class CaptureScript : MonoBehaviour
     private float t;
     private float poschildx;
     private float poschildz;
+
+    private Animator animator; 
     void Awake() 
     {
         isCapturing = false;   
@@ -23,6 +25,7 @@ public class CaptureScript : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         t = 0.01f;
         child = GameObject.FindWithTag("DemonEnemy");
         poschildx = child.transform.position.x;
@@ -64,12 +67,14 @@ public class CaptureScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X) && canBeCapture)
         {
+            animator.SetBool("IsCapturing", true);
             CaptureEnemy(parent);
             isCapturing = true;
         }
 
-        if (isCapturing && Input.GetKeyDown(KeyCode.Z))
+        if ( isCapturing && Input.GetKeyDown(KeyCode.Z))
         {
+            animator.SetBool("IsCapturing", false);
             isCapturing = false;
             DetachEnemy();
         }

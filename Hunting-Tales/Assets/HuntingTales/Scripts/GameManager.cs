@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject player;
+    public GameObject player;
     private GameObject pauseScreen;
     public bool gameOver;
     public bool gameWon;
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
         pauseScreen.SetActive(true);
     }
 

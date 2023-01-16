@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody playerRb;
-    private float moveSpeed = 2;
+    public float moveSpeed = 2;
     private float rotationSpeed = 4;
     private float runningSpeed;
     private float vaxis, haxis;
@@ -19,11 +20,23 @@ public class PlayerMovement : MonoBehaviour
     private float jumpForce;
     public HealthBar healthBar;
     public DashBar dashBar;
+
+    //Animations Variables...
+    private float m_currentV = 0;//
+    private float m_currentH = 0;//
+    private readonly float m_interpolation = 10;
+    private Animator m_animator;
+
+    //Sound variables...
+    public AudioClip dashSound;
+    public AudioSource audioSource;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        m_animator = GetComponent<Animator>();
         dashSpeed = 75.0f;
-        jumpForce = 10.0f;
+        //jumpForce = 10.0f;
         // initializing the health bar variables
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -32,22 +45,40 @@ public class PlayerMovement : MonoBehaviour
         maxDash = 3;
         currentDash = maxDash;
         dashBar.SetMaxDash(maxDash);
+
+        // sound
+        //audioSource = GetComponent<AudioSource>();
     }
 
 
     void FixedUpdate()
     {
+       
+        MovePlayer();
+    }
+
+    public void MovePlayer()
+    {
         /*  Controller Mappings */
         vaxis = Input.GetAxis("Vertical");
         haxis = Input.GetAxis("Horizontal");
+
+        m_currentV = Mathf.Lerp(m_currentV, vaxis, m_interpolation);//-------------->>>>
+        m_currentH = Mathf.Lerp(m_currentH, haxis, m_interpolation);//---------------->>>
     
         //Simplified...
         runningSpeed = vaxis;
 
-        movement = new Vector3(0, 0f, runningSpeed * 8);// Multiplier of 8 seems to work well with Rigidbody Mass of 1.
-        movement = transform.TransformDirection(movement);// transform correction A.K.A. "Move the way we are facing"
+        movement = new Vector3(0, 0f, (runningSpeed * 8) * (m_currentV + m_currentH));// Multiplier of 8 seems to work well with Rigidbody Mass of 1.
+        float directionLength = movement.magnitude;//----------------->>>
+        movement = movement.normalized * directionLength;//------------>>>>
+        if (movement != Vector3.zero)
+        {
+            m_animator.SetFloat("MoveSpeed", movement.magnitude);
+            movement = transform.TransformDirection(movement);// transform correction A.K.A. "Move the way we are facing"
+        }
         
-        GetComponentInChildren<Rigidbody>().AddForce(movement * moveSpeed);   // Movement Force
+        playerRb.AddForce(movement * moveSpeed);// Movement Force
 
         // captures the movement and rotate according the axis
         if ((Input.GetAxis("Vertical") != 0f || Input.GetAxis("Horizontal") != 0f))
@@ -58,33 +89,23 @@ public class PlayerMovement : MonoBehaviour
                 transform.Rotate(new Vector3(0, -haxis * rotationSpeed, 0));
         }
 
+        
     }
     
     // Dash Coroutine that performs the horizontal dash ability... 
     public IEnumerator Dash(float abilityCoolDown)
     {
+        audioSource.PlayOneShot(dashSound);
         SettingParticlesDashBar();
         movement = new Vector3(0, 0f, 1 * 8);        // Multiplier of 8 seems to work well with Rigidbody Mass of 1.
         movement = transform.TransformDirection(movement);      // transform correction A.K.A. "Move the way we are facing"
-        GetComponentInChildren<Rigidbody>().AddForce(movement * dashSpeed); 
+        playerRb.AddForce(movement * dashSpeed); 
         
         yield return new WaitForSeconds(0.2f);
         dashParticle.Stop();
 
         yield return new WaitForSeconds(abilityCoolDown);
         SetBoolsTrue();
-    }
-    // Dash Coroutine that performs the jump dash ability...
-    public IEnumerator JumpDash(float abilityCoolDown)
-    {
-        SettingParticlesDashBar();
-        playerRb.AddForce(Vector3.up * jumpForce,ForceMode.Impulse);
-
-        yield return new WaitForSeconds(0.2f);
-        dashParticle.Stop();
-
-        yield return new WaitForSeconds(abilityCoolDown);
-        SetBoolsTrue(); 
     }
     // method that initialize the cooldown bar to zero and activate the particle effect...
     private void SettingParticlesDashBar()
@@ -97,10 +118,24 @@ public class PlayerMovement : MonoBehaviour
     // method that sets back to true the booleans in ThirdPersonDash Script...
     private void SetBoolsTrue()
     {
-        GetComponent<ThirdPersonDash>().canJump = true;//
+        //GetComponent<ThirdPersonDash>().canJump = true;//
         GetComponent<ThirdPersonDash>().canDash = true;//
         currentDash = 3;//
         dashBar.SetDash(currentDash);//
     }
+
+    // Dash Coroutine that performs the jump dash ability...
+    /*
+    public IEnumerator JumpDash(float abilityCoolDown)
+    {
+        SettingParticlesDashBar();
+        playerRb.AddForce(Vector3.up * jumpForce,ForceMode.Impulse);
+
+        yield return new WaitForSeconds(0.2f);
+        //dashParticle.Stop();
+
+        yield return new WaitForSeconds(abilityCoolDown);
+        SetBoolsTrue(); 
+    }*/
 
 }
