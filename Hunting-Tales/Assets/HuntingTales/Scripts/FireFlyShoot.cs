@@ -18,6 +18,13 @@ public class FireFlyShoot : MonoBehaviour
 
     private Animator hunterAnimator;
     public Animator bottleAnimator;
+    //public Dialogue  isDialogue;
+    //public bool condition;
+
+
+
+    
+
 
 
     // Start is called before the first frame update
@@ -26,6 +33,7 @@ public class FireFlyShoot : MonoBehaviour
         bulletPrefab = bullet.GetComponent<Rigidbody>();
         currentBullets = FindObjectOfType<BulletCount>();
         hunterAnimator = GetComponent<Animator>();
+        //condition = isDialogue.dialogue;
 
         // amountBullets = amountBullets + 5
     }
@@ -33,12 +41,13 @@ public class FireFlyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && Time.time > startShoot)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > startShoot)
 
         {
+            
             hunterAnimator.SetBool("IsCapturing",true);
             bottleAnimator.SetBool("IsAim",true);
-            if (currentBullets.amountBullets > 0)
+            if (currentBullets.amountBullets >  0 &&  !Dialogue.dialogue )
             {
                // GameObject obj = GetWeapon();
                // obj.transform.position = transform.position;
@@ -49,7 +58,7 @@ public class FireFlyShoot : MonoBehaviour
 
                 GameObject bulletPrefabInstance = Instantiate(bullet, shooter.position, Quaternion.identity);
                 bulletPrefabInstance.GetComponent<Rigidbody>().AddForce(shooter.forward * speedShoot * 100);
-                //Destroy(bulletPrefabInstance);
+                Destroy(bulletPrefabInstance,3f);
                 //bulletPrefabInstance.SetActive(false);
 
 
@@ -58,6 +67,13 @@ public class FireFlyShoot : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyUp(KeyCode.Space)){
+            hunterAnimator.SetBool("IsCapturing",false);
+            bottleAnimator.SetBool("IsAim",false);
+        }
+            
+
     }
 
 /*

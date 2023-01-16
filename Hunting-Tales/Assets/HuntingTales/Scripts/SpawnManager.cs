@@ -5,6 +5,11 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject yokaiMisteryBox;
+   // public GameObject healtGuriGuri;
+    public bool stopSpawning = false;
+    public float spawnTime;
+    public float spawnDelay;
+
     //public GameObject misteryBox;
     /*
     Variables that sets the position of the mistery boxes these variables can be changed in order to be placed around the level...
@@ -17,11 +22,15 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
-        pos1 = new Vector3(24.2999992f,0.00999999978f,20.2000008f);
-        pos2= new Vector3(31.1f,0.88f,-76.4f);
-        pos3 = new Vector3(0.29f,0.61f,44.43f);
+       
+        pos1 = new Vector3(24.2999992f,-1.38f,21.4899998f);
+        pos2= new Vector3(31.1f,-1.29999995f,-76.4f);
+        pos3 = new Vector3(0.289999992f,-1.53999996f,44.43f);
         RandomPositionObjectRespawn();
+    }
+
+    void Start() {
+        //InvokeRepeating("SpawnHealt", spawnTime, spawnDelay);
     }
     // method that instantiate the mistery boxes in three position setting a random position position for the yokai enemy...
     private void RandomPositionObjectRespawn()
@@ -47,4 +56,11 @@ public class SpawnManager : MonoBehaviour
             //Instantiate(misteryBox, pos2, misteryBox.transform.rotation);
         }
     }
+
+    /*public void SpawnHealt(){
+        Instantiate(healtGuriGuri, transform.position, transform.rotation);
+        if(stopSpawning) {
+            CancelInvoke("SpawnHealt");
+        }
+    }*/
 }

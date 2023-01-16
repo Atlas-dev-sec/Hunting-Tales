@@ -19,14 +19,16 @@ public class HiveCharge : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player")
+       
+        if (other.gameObject.tag.Equals("Player"))
         {
+            
             gameObject.SetActive(false);
             currentBullets.amountBullets = currentBullets.amountBullets + 5;
             
          
-            //StartCoroutine(ChargeHive());
-            Invoke("Charge",40);
+            
+            Invoke("Charge",30);
             
         }
     }

@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 4042077989413927902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.23, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4042077989315107872}
@@ -459,7 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ed6e356a62c034c88eaac573f13d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFind: {fileID: 0}
   amountBullets: 3
 --- !u!65 &7483106268760346088
 BoxCollider:
@@ -469,11 +468,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4042077989413927902}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4284654, y: 1, z: 2.5392592}
-  m_Center: {x: 0.038536593, y: 0, z: -0.34036103}
+  m_Size: {x: 4.2503357, y: 2.8779936, z: 5.305958}
+  m_Center: {x: 0.070114136, y: 1.1744952, z: 0.21510124}
 --- !u!1 &8670920721876452597
 GameObject:
   m_ObjectHideFlags: 0

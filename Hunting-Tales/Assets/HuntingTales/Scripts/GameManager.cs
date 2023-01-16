@@ -43,5 +43,6 @@ public class GameManager : MonoBehaviour
             gameOver = true;
             pauseScreen.SetActive(false);
         }
+
     }
 }
