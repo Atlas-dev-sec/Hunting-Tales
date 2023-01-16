@@ -12,6 +12,7 @@ TagManager:
   - Bottle
   - Hive
   - Weapon
+  - Fog
   layers:
   - Default
   - TransparentFX

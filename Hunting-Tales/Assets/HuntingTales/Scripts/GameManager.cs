@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     private GameObject pauseScreen;
-    public bool gameOver;
+    public bool gameOver = true;
     public bool gameWon;
     
     void Awake() 
@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     {
         CheckWinCondition();
         CheckLoseCondition();
+
+     
+  
     }
 
     // methods that checks for the win condition...
