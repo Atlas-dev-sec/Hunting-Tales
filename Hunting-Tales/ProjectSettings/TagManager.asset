@@ -13,6 +13,8 @@ TagManager:
   - Hive
   - Weapon
   - Fog
+  - Collect
+  - DestroyObject
   layers:
   - Default
   - TransparentFX

@@ -7,10 +7,12 @@ public class BulletCount : MonoBehaviour
     //public GameObject objectToFind;
     // Start is called before the first frame update
     public int amountBullets = 3;
+    //[SerializeField] private GameObject particle;
+    
 
     private void Start()
     {
-        //objectToFind = GameObject.FindGameObjectWithTag("Bottle");
+        
        
     }
 

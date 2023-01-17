@@ -15,12 +15,14 @@ public class EnemyAI : MonoBehaviour
     public HealthBar healthBar;
     public Animator animator;
     public AudioClip hitSound;
-    AudioSource audioSource;
+    [SerializeField] private AudioSource monsterSoundEffect;
+     [SerializeField] private AudioSource hitSoundEffect;
+     [SerializeField] private GameObject hitEffect;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         
         animator = GetComponent<Animator>();
@@ -34,11 +36,13 @@ public class EnemyAI : MonoBehaviour
         
         if (distanceToTarget <= chaseRange)
         {
+            
             EngageTarget();
         }
 
         if (distanceToTarget >= chaseRange)
         {
+            
             DesEngage();
         }
         
@@ -47,17 +51,19 @@ public class EnemyAI : MonoBehaviour
     // method that decides between Chase the player or Attack the player...
     private void EngageTarget()
     {
+        
         // if the distance to the player is within the chase range enemry starts persecution...
         if(distanceToTarget <= chaseRange)
         {
-           
+           monsterSoundEffect.Play();
            ChaseTarget(); 
         }
         // if the distance to the player is less than the stoppping distance starts attacking the player...
         if (distanceToTarget <= navMeshAgent.stoppingDistance)
         {
             AttackTarget();
-            //StartCoroutine(HitSoundCoroutine());
+           
+           // StartCoroutine(HitSoundCoroutine());
            
         }
         
@@ -70,6 +76,7 @@ public class EnemyAI : MonoBehaviour
     // method that positions the enemy with the player position...
     private void ChaseTarget()
     {
+        
         navMeshAgent.SetDestination(target.position);
        animator.SetBool("IsWalking", true);
     }
@@ -77,6 +84,7 @@ public class EnemyAI : MonoBehaviour
     // method that attacks the enemy also subtracts player health and update the healthbar value...
     private void AttackTarget()
     {
+        monsterSoundEffect.Play();
         //audioSource.PlayOneShot(hitSound);
         playerMovementScript.currentHealth -= enemyDamageAttack;
         healthBar.SetHealth(playerMovementScript.currentHealth);
@@ -90,12 +98,28 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);    
     }
+    
+    private void OnCollisionEnter(Collision other){
+        if(other.gameObject.tag.Equals("Weapon")){
+            hitSoundEffect.Play();
+            hitEffect.SetActive(true);
+            StartCoroutine(HitSoundCoroutine());
+            //BulletCount.particle.SetActive(true);
+           // other.gameObject.HitParticles.SetActive(true);
 
-   /* private IEnumerator HitSoundCoroutine()
+           // other.gameObject.SetActive(false);
+            //GameObject obj =Instantiate(fragments, transform.position, Quaternion.identity);
+            //Instantiate(diamond, transform.position , Quaternion.identity);
+           //Destroy(obj,1.5f);       
+        
+        }
+     }
+
+    private IEnumerator HitSoundCoroutine()
     {
         
-        yield return new WaitForSeconds(0.75f);
-        audioSource.Play();
+        yield return new WaitForSeconds(0.5f);
+         hitEffect.SetActive(false);
 
-    }*/
+    }
 }

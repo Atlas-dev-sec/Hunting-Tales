@@ -18,6 +18,8 @@ public class FireFlyShoot : MonoBehaviour
 
     private Animator hunterAnimator;
     public Animator bottleAnimator;
+    [SerializeField] private AudioSource shootSoundEffect;
+    [SerializeField] private AudioSource emptySoundEffect;
     //public Dialogue  isDialogue;
     //public bool condition;
 
@@ -49,6 +51,7 @@ public class FireFlyShoot : MonoBehaviour
             bottleAnimator.SetBool("IsAim",true);
             if (currentBullets.amountBullets >  0 &&  !Dialogue.dialogue )
             {
+                shootSoundEffect.Play();
                // GameObject obj = GetWeapon();
                // obj.transform.position = transform.position;
                // obj.transform.rotation = transform.rotation;
@@ -65,6 +68,9 @@ public class FireFlyShoot : MonoBehaviour
                 currentBullets.amountBullets = currentBullets.amountBullets - 1;
 
             }
+            else{
+                emptySoundEffect.Play();
+            }
 
         }
 
@@ -75,6 +81,8 @@ public class FireFlyShoot : MonoBehaviour
             
 
     }
+
+
 
 /*
     public GameObject GetWeapon(){

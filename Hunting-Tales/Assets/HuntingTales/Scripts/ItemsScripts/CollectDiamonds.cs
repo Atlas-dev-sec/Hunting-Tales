@@ -4,23 +4,40 @@ using UnityEngine;
 
 public class CollectDiamonds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private AudioSource collectSoundEffect;
+    private bool unActive = false;
+    
+
+private void Update() {
+                if (unActive)
+        {
+           
+        }
+}
 
         private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag.Equals("Player")){
-        this.gameObject.SetActive(false);
+            collectSoundEffect.Play();
+            StartCoroutine(HitSoundCoroutine());
+            //this.gameObject.SetActive(false);
+            
+
+
+            StartCoroutine(HitSoundCoroutine());
+            //this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
         }
        
+    }
+
+     private IEnumerator HitSoundCoroutine()
+    {
+        
+        yield return new WaitForSeconds(0.4f);
+        //collectSoundEffect.Play();
+        this.gameObject.SetActive(false);
+
     }
 }
