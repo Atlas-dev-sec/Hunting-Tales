@@ -10,6 +10,7 @@ public class DemonScript : MonoBehaviour
     private Rigidbody yokaiRb;
     private float speed;
     private GameObject playerTarget;
+    [SerializeField] private AudioClip laugh;
    
 
 
@@ -57,4 +58,10 @@ public class DemonScript : MonoBehaviour
     {
         enemyLife -= damage;
     }
+
+     private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.tag.Equals("Weapon")) {
+            SoundController.Instance.ExecuteSound(laugh);
+        }
+     }
 }

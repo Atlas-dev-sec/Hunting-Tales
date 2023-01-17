@@ -7,7 +7,7 @@ public class HealthPotion : MonoBehaviour
     public PlayerMovement player;
     public HealthBar healthBar;
     private float healingFactor;
-    public AudioSource collectHealthEffect;
+    [SerializeField] private AudioClip collectHealthEffect;
 
     void Start()
     {
@@ -19,8 +19,16 @@ public class HealthPotion : MonoBehaviour
         // compare conditional on trigger with player...
         if(other.CompareTag("Player"))
         {
-            collectHealthEffect.Play();
-            // first conditional case if player has max life amount only destroy the gameobject...
+            SoundController.Instance.ExecuteSound(collectHealthEffect);
+            HealthControl();
+
+        }    
+    }
+
+
+
+    private void HealthControl(){
+                    // first conditional case if player has max life amount only destroy the gameobject...
             if (player.currentHealth >= player.maxHealth)
             {
                 Destroy(gameObject);
@@ -38,12 +46,10 @@ public class HealthPotion : MonoBehaviour
                 healthBar.SetHealth(player.currentHealth);
                 Destroy(gameObject);
             }
-
-
-
-
-        }    
     }
 
+
+
+    
 
 }

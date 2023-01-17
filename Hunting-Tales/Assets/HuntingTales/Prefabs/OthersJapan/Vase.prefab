@@ -162,3 +162,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragments: {fileID: 1256314891205561730, guid: a2a8f91806507ae4489d3978501bc4ae, type: 3}
   diamond: {fileID: 2527663470581119652, guid: a1be91f832cbcc34bb9851f35e34e3d0, type: 3}
+  destroyBox: {fileID: 8300000, guid: b3769561bf25d9b4c86e61a4af57fb78, type: 3}
