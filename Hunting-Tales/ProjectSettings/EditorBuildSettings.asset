@@ -5,18 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/HuntingTales/Scenes/MainMenu.unity
-    guid: 72cacc034cece9845a4ba13b7c1fbfda
-  - enabled: 0
-    path: Assets/HuntingTales/Scenes/EasyLevel.unity
-    guid: adad79f88f06e594896c121d966ef136
-  - enabled: 0
-    path: Assets/HuntingTales/Scenes/MediumLevel.unity
-    guid: 6b3a8f0043324e3499571254dec40707
-  - enabled: 0
-    path: Assets/HuntingTales/Scenes/HardLevel.unity
-    guid: 5a2f92772dd28d4499d0474f2e5a4066
   - enabled: 1
     path: Assets/HuntingTales/Scenes/LevelSelectScreen.unity
     guid: cbe38a4bfc409104291da2885ae82c8e

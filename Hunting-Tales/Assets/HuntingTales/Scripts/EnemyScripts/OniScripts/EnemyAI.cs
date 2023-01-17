@@ -57,7 +57,7 @@ public class EnemyAI : MonoBehaviour
         if (distanceToTarget <= navMeshAgent.stoppingDistance)
         {
             AttackTarget();
-            StartCoroutine(HitSoundCoroutine());
+            //StartCoroutine(HitSoundCoroutine());
            
         }
         
@@ -91,11 +91,11 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, chaseRange);    
     }
 
-    private IEnumerator HitSoundCoroutine()
+   /* private IEnumerator HitSoundCoroutine()
     {
         
         yield return new WaitForSeconds(0.75f);
         audioSource.Play();
 
-    }
+    }*/
 }
