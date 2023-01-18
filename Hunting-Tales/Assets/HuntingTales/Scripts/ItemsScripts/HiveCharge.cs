@@ -5,6 +5,7 @@ using UnityEngine;
 public class HiveCharge : MonoBehaviour
 {
     public BulletCount currentBullets;
+    [SerializeField] private AudioClip chargeHive;
     
     // Start is called before the first frame update
     void Start()
@@ -22,13 +23,13 @@ public class HiveCharge : MonoBehaviour
        
         if (other.gameObject.tag.Equals("Player"))
         {
-            
+            SoundController.Instance.ExecuteSound(chargeHive);
             gameObject.SetActive(false);
-            currentBullets.amountBullets = currentBullets.amountBullets + 5;
+            currentBullets.amountBullets = currentBullets.amountBullets + 6;
             
          
             
-            Invoke("Charge",30);
+            Invoke("Charge",15);
             
         }
     }

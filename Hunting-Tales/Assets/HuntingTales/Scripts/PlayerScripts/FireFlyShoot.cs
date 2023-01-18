@@ -49,7 +49,7 @@ public class FireFlyShoot : MonoBehaviour
             
             hunterAnimator.SetBool("IsCapturing",true);
             bottleAnimator.SetBool("IsAim",true);
-            if (currentBullets.amountBullets >  0 &&  !Dialogue.dialogue )
+            if (currentBullets.amountBullets >  0  &&  !Dialogue.dialogue )
             {
                 shootSoundEffect.Play();
                // GameObject obj = GetWeapon();

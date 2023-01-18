@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
+    [SerializeField] private AudioClip exclamation, surprise;
 
     //Serialize sound NPC
     //[SerializeField] private AudioClip npcVoice;
@@ -20,6 +21,7 @@ public class Dialogue : MonoBehaviour
     private bool didDialogueStart;
     private int lineIndex;
     public static bool dialogue = false;
+
 
     //Sound NPC Dialogue
    /* private AudioSource audioSource;*/
@@ -39,6 +41,7 @@ public class Dialogue : MonoBehaviour
             Debug.Log("Player is in range");
             if (!didDialogueStart)
             {
+                SoundController.Instance.ExecuteSound(exclamation);
                 StartDialogue();
             }
             else if (dialogueText.text == dialogueLines[lineIndex])
@@ -75,6 +78,8 @@ public class Dialogue : MonoBehaviour
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(true);
             Time.timeScale = 1f;
+            SoundController.Instance.ExecuteSound(exclamation);
+            SoundController.Instance.ExecuteSound(surprise);
         }
     }
 
@@ -100,6 +105,8 @@ public class Dialogue : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            
+            
             isPlayerInRange = true;
             dialogue = true;
             dialogueMark.SetActive(true);
@@ -110,6 +117,7 @@ public class Dialogue : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+           
             dialogue = false;
             isPlayerInRange = false;
             dialogueMark.SetActive(false);

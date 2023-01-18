@@ -97,6 +97,8 @@ MonoBehaviour:
   - However, you can paralyze them with magical fireflies and you can dash them as
     well, some of them are very aggressive
   - Please seek for protection under a magical bonsai
+  exclamation: {fileID: 8300000, guid: 36ef33c912ab65246ae63a5b49119cd6, type: 3}
+  surprise: {fileID: 8300000, guid: 1613ae2e18b35da4aa78c9317eec441b, type: 3}
   typingTime: 0.01
 --- !u!1 &6254261675039724580
 GameObject:

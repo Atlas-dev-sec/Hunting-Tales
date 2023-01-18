@@ -4825,8 +4825,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.7624583, y: 3.5394316, z: 3.1810398}
-  m_Center: {x: 0.9099395, y: 0.2415943, z: -0.65641737}
+  m_Size: {x: 3.791114, y: 3.5658605, z: 3.1810398}
+  m_Center: {x: 0.92426723, y: 0.22837979, z: -0.65641725}
 --- !u!114 &6866072960667913134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4840,3 +4840,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBullets: {fileID: 0}
+  chargeHive: {fileID: 8300000, guid: a091ee9c81916f94b944453ba5f4320c, type: 3}

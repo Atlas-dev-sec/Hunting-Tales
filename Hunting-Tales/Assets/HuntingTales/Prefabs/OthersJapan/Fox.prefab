@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragments: {fileID: 2932244873437581683, guid: 78e5fb96332ac09448ed5918466a5300, type: 3}
   diamond: {fileID: 2527663470581119652, guid: a1be91f832cbcc34bb9851f35e34e3d0, type: 3}
-  destroyBox: {fileID: 0}
+  destroyBox: {fileID: 8300000, guid: b3769561bf25d9b4c86e61a4af57fb78, type: 3}
 --- !u!1 &8105446002996926406
 GameObject:
   m_ObjectHideFlags: 0
