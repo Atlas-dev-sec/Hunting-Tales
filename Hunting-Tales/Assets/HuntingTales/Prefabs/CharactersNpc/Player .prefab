@@ -840,7 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a24ec72f49dff47b07769eb0243cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 0.017
   dashParticle: {fileID: 8037759881737536688}
   maxHealth: 100
   currentHealth: 0

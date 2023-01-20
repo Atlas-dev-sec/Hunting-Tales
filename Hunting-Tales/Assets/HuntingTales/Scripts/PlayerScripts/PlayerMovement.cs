@@ -63,22 +63,23 @@ public class PlayerMovement : MonoBehaviour
         vaxis = Input.GetAxis("Vertical");
         haxis = Input.GetAxis("Horizontal");
 
-        m_currentV = Mathf.Lerp(m_currentV, vaxis, m_interpolation);//-------------->>>>
-        m_currentH = Mathf.Lerp(m_currentH, haxis, m_interpolation);//---------------->>>
+        //m_currentV = Mathf.Lerp(m_currentV, vaxis, m_interpolation);//-------------->>>>
+        //m_currentH = Mathf.Lerp(m_currentH, haxis, m_interpolation);//---------------->>>
     
         //Simplified...
         runningSpeed = vaxis;
 
-        movement = new Vector3(0, 0f, (runningSpeed * 8) * (m_currentV + m_currentH));// Multiplier of 8 seems to work well with Rigidbody Mass of 1.
-        float directionLength = movement.magnitude;//----------------->>>
-        movement = movement.normalized * directionLength;//------------>>>>
+        movement = new Vector3(0, 0f, (runningSpeed * 8));// Multiplier of 8 seems to work well with Rigidbody Mass of 1.
+        //float directionLength = movement.magnitude;//----------------->>>
+        //movement = movement.normalized * directionLength;//------------>>>>
         if (movement != Vector3.zero)
         {
             m_animator.SetFloat("MoveSpeed", movement.magnitude);
             movement = transform.TransformDirection(movement);// transform correction A.K.A. "Move the way we are facing"
         }
         
-        playerRb.AddForce(movement * moveSpeed);// Movement Force
+        //playerRb.AddForce(movement * moveSpeed);// Movement Force
+        playerRb.MovePosition(transform.position + (movement * moveSpeed));
 
         // captures the movement and rotate according the axis
         if ((Input.GetAxis("Vertical") != 0f || Input.GetAxis("Horizontal") != 0f))

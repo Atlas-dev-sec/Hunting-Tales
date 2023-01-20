@@ -16,6 +16,7 @@ public class CaptureScript : MonoBehaviour
     private float t;
     private float poschildx;
     private float poschildz;
+    public ParticleSystem captureParticle;
 
     private Animator animator; 
     void Awake() 
@@ -67,6 +68,7 @@ public class CaptureScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X) && canBeCapture)
         {
+            captureParticle.Play();
             animator.SetBool("IsCapturing", true);
             CaptureEnemy(parent);
             isCapturing = true;
@@ -74,6 +76,7 @@ public class CaptureScript : MonoBehaviour
 
         if ( isCapturing && Input.GetKeyDown(KeyCode.Z))
         {
+            captureParticle.Stop();
             animator.SetBool("IsCapturing", false);
             isCapturing = false;
             DetachEnemy();
