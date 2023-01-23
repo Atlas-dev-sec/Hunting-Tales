@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: -719965617784850009}
   m_Layer: 0
   m_Name: PatrollOni
-  m_TagString: Enemy
+  m_TagString: EnemyPatroll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,9 @@ MonoBehaviour:
   monsterSoundEffect: {fileID: 8300000, guid: 91a5243a9b6906f4ebe59eb47495610d, type: 3}
   hitEffect: {fileID: 3290484468895879356}
   paralizeEffect: {fileID: 8858930678451763426}
-  wayPoints: []
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   wayPointIndex: 0
   patrollingTarget: {x: 0, y: 0, z: 0}
   wasEngage: 0

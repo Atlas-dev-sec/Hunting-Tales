@@ -18,6 +18,8 @@ public class CaptureScript : MonoBehaviour
     private float poschildz;
     public ParticleSystem captureParticle;
     public ThirdPersonDash dash;
+    private GameObject yokai;
+    private Animator yokaiAnimator;
 
     private Animator animator; 
     void Awake() 
@@ -29,6 +31,8 @@ public class CaptureScript : MonoBehaviour
     {
         dash.enabled = true;
         animator = GetComponent<Animator>();
+        yokai = GameObject.FindGameObjectWithTag("DemonEnemy");
+        yokaiAnimator = yokai.GetComponentInChildren<Animator>();
         t = 0.01f;
         child = GameObject.FindWithTag("DemonEnemy");
         poschildx = child.transform.position.x;
@@ -72,6 +76,7 @@ public class CaptureScript : MonoBehaviour
         {
             captureParticle.Play();
             animator.SetBool("IsCapturing", true);
+            yokaiAnimator.SetBool("IsCapturing", true);
             CaptureEnemy(parent);
             isCapturing = true;
 
@@ -90,6 +95,7 @@ public class CaptureScript : MonoBehaviour
             captureParticle.Stop();
             dash.enabled = true;
             animator.SetBool("IsCapturing", false);
+            yokaiAnimator.SetBool("IsCapturing", false);
             isCapturing = false;
             DetachEnemy();
     }
