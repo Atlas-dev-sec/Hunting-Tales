@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DestroyYokayBox : MonoBehaviour
 {
     public GameObject fragments;
     [SerializeField] private AudioClip destroyBox;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+     private GameObject yokaiCanvas;
+    private Image yokaiUI;
+
+    private void Start() {
+        yokaiCanvas = GameObject.Find("YokaiBar");
+        yokaiUI =  yokaiCanvas.GetComponentInChildren<Image>();
+        yokaiUI.enabled = false;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -20,6 +25,7 @@ public class DestroyYokayBox : MonoBehaviour
 
     private void OnCollisionEnter(Collision other){
         if(other.gameObject.tag.Equals("Weapon")){
+                yokaiUI.enabled = true;
             SoundController.Instance.ExecuteSound(destroyBox);
              GameObject obj = Instantiate(fragments, transform.position, Quaternion.identity);
             //Instantiate(diamond, transform.position , Quaternion.identity);

@@ -898,6 +898,8 @@ MonoBehaviour:
   parent: {fileID: 2717236582031136762}
   target: {fileID: 4216995107344006996, guid: a22426eb787df8248bd7d543825fb7d6, type: 3}
   enemyCaptured: 0
+  captureParticle: {fileID: 0}
+  dash: {fileID: 2717236582031136764}
 --- !u!114 &2717236582031136764
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,9 +36,12 @@ public class ThirdPersonDash : MonoBehaviour
         // if the left click is pressed and canDash is equal to true triggers the coroutine
          if (Input.GetMouseButtonDown(0) && canDash)
         {
-            // call to the SetBoolFalse method in order to avoid keep jumping or dashing...
-            SetBoolFalse();
-            StartCoroutine(GetComponent<PlayerMovement>().Dash(abilityCoolDown));
+            if(GetComponent<PlayerMovement>().currentHealth >= 1) {
+                // call to the SetBoolFalse method in order to avoid keep jumping or dashing...
+                SetBoolFalse();
+                StartCoroutine(GetComponent<PlayerMovement>().Dash(abilityCoolDown));
+            }
+
             
         }
     }

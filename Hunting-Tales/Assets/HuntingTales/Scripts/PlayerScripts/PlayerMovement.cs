@@ -55,6 +55,14 @@ public class PlayerMovement : MonoBehaviour
     {
        
         MovePlayer();
+        if(currentHealth <= 0  ) {
+            DeathTransition();
+        }
+    }
+
+    public void DeathTransition(){
+        m_animator.SetBool("IsDead", true);
+        this.enabled = false;
     }
 
     public void MovePlayer()

@@ -8,11 +8,13 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseScreen;
     private GameObject[] oniEnemies;
+    private GameObject[] oniPatrolEnemies;
     private bool isPaused;
 
     void Start() 
     {
         oniEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        oniPatrolEnemies = GameObject.FindGameObjectsWithTag("EnemyPatroll");
     }
 
     void Update()
@@ -31,6 +33,12 @@ public class PauseMenu : MonoBehaviour
           foreach(GameObject oniEnemy in oniEnemies)
           {
             oniEnemy.GetComponent<EnemyAI>().enabled = false;
+
+          }
+        foreach(GameObject oniEnemyPatrol in oniPatrolEnemies)
+          {
+            oniEnemyPatrol.GetComponent<EnemyPatrollingAI>().enabled = false;
+
           }
             Time.timeScale = 0.0f;
         }

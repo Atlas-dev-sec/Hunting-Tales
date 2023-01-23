@@ -174,7 +174,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184848175654484400, guid: 4ae1c13f9e6c1064ea8019224e9d3ad1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4826835418944084995, guid: 4ae1c13f9e6c1064ea8019224e9d3ad1, type: 3}
       propertyPath: m_Pivot.y
@@ -283,6 +283,10 @@ PrefabInstance:
     - target: {fileID: 7200007457855286339, guid: 4ae1c13f9e6c1064ea8019224e9d3ad1, type: 3}
       propertyPath: m_Name
       value: SliderCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200007457855286339, guid: 4ae1c13f9e6c1064ea8019224e9d3ad1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8383381554666367000, guid: 4ae1c13f9e6c1064ea8019224e9d3ad1, type: 3}
       propertyPath: m_Color.b

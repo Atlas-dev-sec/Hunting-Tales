@@ -15,6 +15,7 @@ TagManager:
   - Fog
   - Collect
   - DestroyObject
+  - EnemyPatroll
   layers:
   - Default
   - TransparentFX

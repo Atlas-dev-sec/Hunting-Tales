@@ -17,6 +17,7 @@ public class CaptureScript : MonoBehaviour
     private float poschildx;
     private float poschildz;
     public ParticleSystem captureParticle;
+    public ThirdPersonDash dash;
 
     private Animator animator; 
     void Awake() 
@@ -26,6 +27,7 @@ public class CaptureScript : MonoBehaviour
 
     void Start()
     {
+        dash.enabled = true;
         animator = GetComponent<Animator>();
         t = 0.01f;
         child = GameObject.FindWithTag("DemonEnemy");
@@ -72,15 +74,24 @@ public class CaptureScript : MonoBehaviour
             animator.SetBool("IsCapturing", true);
             CaptureEnemy(parent);
             isCapturing = true;
+
         }
 
         if ( isCapturing && Input.GetKeyDown(KeyCode.Z))
-        {
+        { 
+            UnCaptureProcess();
+        }
+        if(GetComponent<PlayerMovement>().currentHealth <= 0 ){
+                UnCaptureProcess();
+        }
+    }
+
+    public void UnCaptureProcess(){
             captureParticle.Stop();
+            dash.enabled = true;
             animator.SetBool("IsCapturing", false);
             isCapturing = false;
             DetachEnemy();
-        }
     }
 
     // method that makes the enemy yokai game object a child of player...

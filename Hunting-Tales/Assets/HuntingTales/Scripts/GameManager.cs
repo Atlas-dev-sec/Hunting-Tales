@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     private GameObject pauseScreen;
+    private GameObject[] oniEnemies;
     public bool gameOver = true;
     public bool gameWon;
     
     void Awake() 
     {
         pauseScreen = GameObject.FindWithTag("Pause");
+        oniEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
     void Start()
     {
@@ -33,6 +35,9 @@ public class GameManager : MonoBehaviour
     { 
         if (player.GetComponent<CaptureScript>().enemyCaptured == true)
         {
+            for(int i = 0; i < oniEnemies.Length ; i++) {
+                oniEnemies[i].GetComponent<EnemyAI>().enabled = false;
+            }
             gameWon = true;
             pauseScreen.SetActive(false);
         }
@@ -43,9 +48,15 @@ public class GameManager : MonoBehaviour
     {  
         if (player.GetComponent<PlayerMovement>().currentHealth <= 0)
         {
-            gameOver = true;
+            
+            StartCoroutine(SetGameOverCoroutine());
             pauseScreen.SetActive(false);
         }
 
+    }
+
+    private IEnumerator SetGameOverCoroutine(){
+        yield return new WaitForSecondsRealtime(4f);
+        gameOver = true;
     }
 }
