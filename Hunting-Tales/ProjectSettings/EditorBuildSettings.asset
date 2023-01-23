@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/HuntingTales/Scenes/MenuScene.unity
+    guid: ff4e41655b0a5e940afac15b534c073b
+  - enabled: 1
     path: Assets/HuntingTales/Scenes/LevelSelectScreen.unity
     guid: cbe38a4bfc409104291da2885ae82c8e
   - enabled: 1
