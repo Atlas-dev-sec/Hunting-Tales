@@ -29,6 +29,7 @@ public class GameOverMenu : MonoBehaviour
         {
             gameOverScreen.SetActive(true);
             Time.timeScale = 0.0f;
+            
         }
     }
     //method that restarts the level, player health and reset the gameOver bool variable back to false...
@@ -48,4 +49,5 @@ public class GameOverMenu : MonoBehaviour
         gameManager.GetComponent<GameManager>().gameOver = false;
         SceneManager.LoadScene("LevelSelectScreen");
     }
+
 }

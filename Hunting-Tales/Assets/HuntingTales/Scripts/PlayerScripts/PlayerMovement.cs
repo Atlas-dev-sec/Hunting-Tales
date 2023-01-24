@@ -28,8 +28,9 @@ public class PlayerMovement : MonoBehaviour
     private Animator m_animator;
 
     //Sound variables...
-    public AudioClip dashSound;
     public AudioSource audioSource;
+    public AudioClip dashSound;
+    public AudioClip gameOverSound;
 
     void Start()
     {
@@ -61,6 +62,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void DeathTransition(){
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(gameOverSound);
+        }
         m_animator.SetBool("IsDead", true);
         this.enabled = false;
     }

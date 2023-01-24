@@ -6,22 +6,27 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip clickSound;
     // Start is called before the first frame update
     public void LoadOne()
     {
-        Debug.Log("carga");
+        audioSource.PlayOneShot(clickSound);
         SceneManager.LoadScene("Level");
     }
         public void LoadSecond()
     {
+        audioSource.PlayOneShot(clickSound);
         SceneManager.LoadScene("Level3");
     }
         public void LoadThird()
     {
+        audioSource.PlayOneShot(clickSound);
         SceneManager.LoadScene("Level2");
     }
         public void LoadFour()
     {
+        audioSource.PlayOneShot(clickSound);
         SceneManager.LoadScene("Level4");
     }
 }
