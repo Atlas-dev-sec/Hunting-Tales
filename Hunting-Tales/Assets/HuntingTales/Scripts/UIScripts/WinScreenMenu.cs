@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class WinScreenMenu : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip winSound;
     public GameObject gameManager;
     public GameObject player;
     public GameObject winScreen;
@@ -14,6 +16,7 @@ public class WinScreenMenu : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
         //player = GameObject.Find("Player");
+        audioSource.enabled = true;
     }
 
     // Update is called once per frame
@@ -22,6 +25,7 @@ public class WinScreenMenu : MonoBehaviour
         if (gameManager.GetComponent<GameManager>().gameWon == true)
         {
             winScreen.SetActive(true);
+            StartCoroutine(PlayWinSound());
             Time.timeScale = 0.0f;
         }
     }
@@ -43,5 +47,12 @@ public class WinScreenMenu : MonoBehaviour
         player.GetComponent<CaptureScript>().enemyCaptured = false;
         gameManager.GetComponent<GameManager>().gameWon = false;
         SceneManager.LoadScene("LevelSelectScreen");
+    }
+
+    public IEnumerator PlayWinSound()
+    {
+        audioSource.PlayOneShot(winSound);
+        yield return new WaitForSecondsRealtime(0.2f);
+        audioSource.enabled = false;
     }
 }

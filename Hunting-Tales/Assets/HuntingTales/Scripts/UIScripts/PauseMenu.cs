@@ -28,6 +28,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!isPaused)
         {
+            Cursor.visible = true;
             pauseScreen.SetActive(true);
             isPaused = true;
           foreach(GameObject oniEnemy in oniEnemies)

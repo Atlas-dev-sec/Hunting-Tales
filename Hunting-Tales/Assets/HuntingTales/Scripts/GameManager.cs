@@ -25,9 +25,6 @@ public class GameManager : MonoBehaviour
     {
         CheckWinCondition();
         CheckLoseCondition();
-
-     
-  
     }
 
     // methods that checks for the win condition...
