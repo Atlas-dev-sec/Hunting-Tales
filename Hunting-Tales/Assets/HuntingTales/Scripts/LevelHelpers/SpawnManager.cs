@@ -23,9 +23,9 @@ public class SpawnManager : MonoBehaviour
     void Awake()
     {
        
-        pos1 = new Vector3(24.2999992f,-1.38f,21.4899998f);
-        pos2= new Vector3(31.1f,-1.29999995f,-76.4f);
-        pos3 = new Vector3(0.289999992f,-1.53999996f,44.43f);
+        //pos1 = new Vector3(24.2999992f,-1.38f,21.4899998f);
+        //pos2= new Vector3(31.1f,-1.29999995f,-76.4f);
+        //pos3 = new Vector3(0.289999992f,-1.53999996f,44.43f);
         RandomPositionObjectRespawn();
     }
 
