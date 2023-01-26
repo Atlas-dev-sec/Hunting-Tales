@@ -14,6 +14,9 @@ public class WinScreenMenu : MonoBehaviour
     public LeaderBoard leaderBoard;
     public ScoreManager scoreManager;
     public GameObject submitScoreButton;
+
+    public int levelToUnlock;
+    int numberOfUnlockedLevels;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,11 +44,16 @@ public class WinScreenMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        numberOfUnlockedLevels = PlayerPrefs.GetInt("Unlocked");
+        if(numberOfUnlockedLevels <= levelToUnlock) {
+            PlayerPrefs.SetInt("Unlocked",numberOfUnlockedLevels + 1);
+        }
         Time.timeScale = 1.0f;
         player.GetComponent<PlayerMovement>().currentHealth = player.GetComponent<PlayerMovement>().maxHealth;
         player.GetComponent<CaptureScript>().enemyCaptured = false;
         gameManager.GetComponent<GameManager>().gameWon = false;
         SceneManager.LoadScene(activeScene);
+
 
     }
 

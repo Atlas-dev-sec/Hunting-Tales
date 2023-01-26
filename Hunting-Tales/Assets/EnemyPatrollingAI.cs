@@ -24,6 +24,10 @@ public class EnemyPatrollingAI : MonoBehaviour
      public int wayPointIndex;
      public Vector3 patrollingTarget;
      public bool wasEngage;
+    
+     public GameObject angryMark;   //// linea for disable angry mark
+     public bool inTarget = false;
+     public bool paso = false;  // state conditional for reproduce monster sound
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +37,7 @@ public class EnemyPatrollingAI : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         
         animator = GetComponent<Animator>();
+        angryMark.SetActive(false);
 
        // playerMovementScript = GameObject.Find("Player").GetComponent<PlayerMovement>();
         UpdateDestination();
@@ -44,15 +49,38 @@ public class EnemyPatrollingAI : MonoBehaviour
         // checks every frame the distance between target and enemy
         distanceToTarget = Vector3.Distance(target.position, transform.position);
 
+        if(!canMove) {
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsAttacking", false);
+            paralizeEffect.SetActive(true);
+             //SoundController.Instance.ExecuteSound(monsterSoundEffect);
+            StartCoroutine(CanMoveCoroutine());
+        }else{
+
         if (distanceToTarget <= chaseRange)
         {
+
+            inTarget = true;
+            
+            if(inTarget && !paso){
+                 angryMark.SetActive(true);
+                 paso = true;
+                 SoundController.Instance.ExecuteSound(monsterSoundEffect);
+                 StartCoroutine(DisableAngryMarkCoroutine());
+            }
+           
+            
             EngageTarget();
         }
 
         if (distanceToTarget >= chaseRange && wasEngage)
         {
+            //angryMark.SetActive(false);
+             inTarget = false;
+             
             animator.SetBool("IsAttacking", false);
             DesEngage();
+            paso = false;
         }
         //patrolling
         if (Vector3.Distance(transform.position, patrollingTarget) < 4)
@@ -60,8 +88,8 @@ public class EnemyPatrollingAI : MonoBehaviour
             animator.SetBool("IsWalking", true);
             IterateWaypointIndex();
             UpdateDestination();
+         }
         }
-        
 
         
     }
@@ -170,6 +198,16 @@ public class EnemyPatrollingAI : MonoBehaviour
         yield return new WaitForSeconds(5f);
          canMove = true;
          paralizeEffect.SetActive(false);
+
+    }
+
+        private IEnumerator DisableAngryMarkCoroutine()
+    {
+        
+        yield return new WaitForSeconds(1.5f);
+        
+        angryMark.SetActive(false);
+     
 
     }
 }

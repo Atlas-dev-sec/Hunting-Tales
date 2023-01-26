@@ -22,7 +22,7 @@ public class MisteryBox : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
        if(other.gameObject.tag.Equals("Player") )
         {
-            yokaiUI.enabled = true;
+           // yokaiUI.enabled = true;
         } 
     }
 }

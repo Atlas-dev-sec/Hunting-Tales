@@ -19,6 +19,9 @@ public class EnemyAI : MonoBehaviour
      [SerializeField] private AudioClip hitSoundEffect, monsterSoundEffect ;
      [SerializeField] private GameObject hitEffect, paralizeEffect;
      public static bool canMove = true;
+        public GameObject angryMark;   //// linea for disable angry mark
+     public bool inTarget = false;
+     public bool paso = false;  // state conditional for reproduce monster sound
 
     // Start is called before the first frame update
     void Start()
@@ -37,20 +40,30 @@ public class EnemyAI : MonoBehaviour
 
         if(!canMove) {
             animator.SetBool("IsWalking", false);
+           
             paralizeEffect.SetActive(true);
              //SoundController.Instance.ExecuteSound(monsterSoundEffect);
             StartCoroutine(CanMoveCoroutine());
         }else{
                     if (distanceToTarget <= chaseRange)
         {
+            inTarget = true;
+            
+            if(inTarget && !paso){
+                 angryMark.SetActive(true);
+                 paso = true;
+                 SoundController.Instance.ExecuteSound(monsterSoundEffect);
+                StartCoroutine(DisableAngryMarkCoroutine());
+             }
              
             EngageTarget();
         }
 
         if (distanceToTarget >= chaseRange)
         {
-            
+             inTarget = false;
             DesEngage();
+            paso = false;
         }
 
         }
@@ -66,12 +79,15 @@ public class EnemyAI : MonoBehaviour
         // if the distance to the player is within the chase range enemry starts persecution...
         if(distanceToTarget <= chaseRange)
         {
+
+                
           
            ChaseTarget(); 
         }
         // if the distance to the player is less than the stoppping distance starts attacking the player...
         if (distanceToTarget <= navMeshAgent.stoppingDistance)
         {
+            
             AttackTarget();
            
            // StartCoroutine(HitSoundCoroutine());
@@ -146,5 +162,14 @@ public class EnemyAI : MonoBehaviour
          canMove = true;
          paralizeEffect.SetActive(false);
 
+    }
+
+        private IEnumerator DisableAngryMarkCoroutine()
+    {
+        
+        yield return new WaitForSeconds(1.5f);
+         
+        angryMark.SetActive(false);
+        
     }
 }

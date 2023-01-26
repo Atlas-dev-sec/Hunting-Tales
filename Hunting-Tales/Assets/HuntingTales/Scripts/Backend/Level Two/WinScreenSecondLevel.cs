@@ -11,6 +11,9 @@ public class WinScreenSecondLevel : MonoBehaviour
     public GameObject player;
     public GameObject winScreen;
     public string activeScene;
+
+    public int levelToUnlock;
+    int numberOfUnlockedLevels;
     //public LeaderBoard leaderBoard;
     //public ScoreSecondLevel scoreManager;
     //public GameObject submitScoreButton;
@@ -40,7 +43,10 @@ public class WinScreenSecondLevel : MonoBehaviour
     }
 
     public void RestartLevel()
-    {
+    {        numberOfUnlockedLevels = PlayerPrefs.GetInt("Unlocked");
+        if(numberOfUnlockedLevels <= levelToUnlock) {
+            PlayerPrefs.SetInt("Unlocked",numberOfUnlockedLevels + 1);
+        }
         Time.timeScale = 1.0f;
         player.GetComponent<PlayerMovement>().currentHealth = player.GetComponent<PlayerMovement>().maxHealth;
         player.GetComponent<CaptureScript>().enemyCaptured = false;

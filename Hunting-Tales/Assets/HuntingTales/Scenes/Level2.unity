@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32107174, g: 0.21133253, b: 0.40438062, a: 1}
+  m_IndirectSpecularColor: {r: 0.32097125, g: 0.21131825, b: 0.40435025, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -873,6 +873,7 @@ MonoBehaviour:
   player: {fileID: 1493653639}
   winScreen: {fileID: 871839212}
   activeScene: Level4
+  levelToUnlock: 4
 --- !u!1 &89628381
 GameObject:
   m_ObjectHideFlags: 0
