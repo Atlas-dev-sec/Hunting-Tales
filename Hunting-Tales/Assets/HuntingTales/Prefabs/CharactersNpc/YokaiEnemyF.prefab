@@ -84,8 +84,8 @@ GameObject:
   - component: {fileID: 6964385844555741072}
   - component: {fileID: 6964385844555741086}
   - component: {fileID: 6964385844555741087}
-  - component: {fileID: 6964385844555741084}
   - component: {fileID: 6964385844555741085}
+  - component: {fileID: 5351692768081076549}
   m_Layer: 0
   m_Name: YokaiEnemyF
   m_TagString: DemonEnemy
@@ -139,19 +139,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &6964385844555741084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6964385844555741073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb159b2810a6694da0de1cfcb1e7396, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laugh: {fileID: 8300000, guid: 3763b627d4c1eb449acf55925f14d9a5, type: 3}
 --- !u!114 &6964385844555741085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +151,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64011743dd6fba24aa316d2e07f99727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySlider: {fileID: 6699555038477263573}
+--- !u!114 &5351692768081076549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964385844555741073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb159b2810a6694da0de1cfcb1e7396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laugh: {fileID: 8300000, guid: 3763b627d4c1eb449acf55925f14d9a5, type: 3}
 --- !u!1001 &6964385843582517357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,17 +306,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5530500417747318882, guid: 4ae1c13f9e6c1064ea8019224e9d3ad1, type: 3}
   m_PrefabInstance: {fileID: 6964385843582517357}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6699555038477263573 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4350444019824943800, guid: 4ae1c13f9e6c1064ea8019224e9d3ad1, type: 3}
-  m_PrefabInstance: {fileID: 6964385843582517357}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6964385844941243898
 PrefabInstance:
   m_ObjectHideFlags: 0

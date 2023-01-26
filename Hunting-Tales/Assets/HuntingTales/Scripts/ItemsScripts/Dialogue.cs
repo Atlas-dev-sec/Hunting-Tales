@@ -10,6 +10,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
     [SerializeField] private AudioClip exclamation, surprise;
+    public GameObject scoreCanvas;
+    public GameObject spaceMark;
 
     //Serialize sound NPC
     //[SerializeField] private AudioClip npcVoice;
@@ -30,6 +32,7 @@ public class Dialogue : MonoBehaviour
     {
        /* audioSource = GetComponent<AudioSource>();
         audioSource.clip = npcVoice;*/
+        spaceMark.SetActive(false);
     }
 
 
@@ -40,7 +43,7 @@ public class Dialogue : MonoBehaviour
         {
             Debug.Log("Player is in range");
             if (!didDialogueStart)
-            {
+            {   scoreCanvas.SetActive(false);
                 SoundController.Instance.ExecuteSound(exclamation);
                 StartDialogue();
             }
@@ -51,6 +54,7 @@ public class Dialogue : MonoBehaviour
             else
             {
                 StopAllCoroutines();
+                
                 dialogueText.text = dialogueLines[lineIndex];
             }
         }
@@ -59,6 +63,7 @@ public class Dialogue : MonoBehaviour
     {
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
+        spaceMark.SetActive(false);
         dialogueMark.SetActive(false);
         lineIndex = 0;
         Time.timeScale = 0f;
@@ -76,6 +81,8 @@ public class Dialogue : MonoBehaviour
         {
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
+            scoreCanvas.SetActive(true);
+            spaceMark.SetActive(true);
             dialogueMark.SetActive(true);
             Time.timeScale = 1f;
             SoundController.Instance.ExecuteSound(exclamation);
@@ -105,13 +112,11 @@ public class Dialogue : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            
-            
             isPlayerInRange = true;
             dialogue = true;
+            spaceMark.SetActive(true);
             dialogueMark.SetActive(true);
         }
-
     }
     private void OnTriggerExit(Collider collision)
     {
@@ -120,6 +125,7 @@ public class Dialogue : MonoBehaviour
            
             dialogue = false;
             isPlayerInRange = false;
+            spaceMark.SetActive(false);
             dialogueMark.SetActive(false);
         }
 

@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     private GameObject[] oniEnemies;
     private GameObject[] oniPatrolEnemies;
     private bool isPaused;
+    public GameObject scoreCanvas;
 
     void Start() 
     {
@@ -28,6 +29,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!isPaused)
         {
+            scoreCanvas.SetActive(false);
             Cursor.visible = true;
             pauseScreen.SetActive(true);
             isPaused = true;
@@ -44,7 +46,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0.0f;
         }
         else
-        {   
+        {   scoreCanvas.SetActive(true);
             //Cursor.visible = false;
             pauseScreen.SetActive(false);
             isPaused = false;

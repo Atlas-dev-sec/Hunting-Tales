@@ -11,12 +11,7 @@ public class DemonScript : MonoBehaviour
     private float speed;
     private GameObject playerTarget;
     [SerializeField] private AudioClip laugh;
-   
-
-
-    
-
-
+    //public GameObject buttonImage;
     void Start()
     {
         playerTarget = GameObject.Find("Player");
@@ -25,6 +20,7 @@ public class DemonScript : MonoBehaviour
         captureScript = FindObjectOfType<CaptureScript>();
         enemyHealthBar = FindObjectOfType<EnemyHealthBar>(); 
         enemyLife = 50.0f;
+        //buttonImage.SetActive(false);
     }
 
    
@@ -61,6 +57,7 @@ public class DemonScript : MonoBehaviour
 
      private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag.Equals("Weapon")) {
+            //buttonImage.SetActive(true);
             SoundController.Instance.ExecuteSound(laugh);
         }
      }

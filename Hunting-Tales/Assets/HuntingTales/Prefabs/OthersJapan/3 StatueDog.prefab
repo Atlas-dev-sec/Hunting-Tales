@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 5452271953197251421}
   - component: {fileID: 783362795693982688}
   m_Layer: 0
-  m_Name: StatueDog
+  m_Name: 3 StatueDog
   m_TagString: Collect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,5 +227,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fragments: {fileID: 2316191341847098426, guid: 9d678c3ab78327748a9e5d16510d5518, type: 3}
-  diamond: {fileID: 2527663470581119652, guid: a1be91f832cbcc34bb9851f35e34e3d0, type: 3}
+  diamond: {fileID: 2527663470581119652, guid: 78afd806d27f83a4389a51587c965392, type: 3}
   destroyBox: {fileID: 8300000, guid: b3769561bf25d9b4c86e61a4af57fb78, type: 3}
