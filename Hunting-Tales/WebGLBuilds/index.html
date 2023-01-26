@@ -23,8 +23,6 @@
         <div id="unity-build-title">Hunting-Tales</div>
       </div>
     </div>
-    <button class="cryptoButton" id="connect" onclick="connectMetamask()">Connect MetaMask</button>
-    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -117,58 +115,5 @@
       };
       document.body.appendChild(script);
     </script>
-
-<script>
-  //WEB 3
-  // ->> CONNECT TO WALLET
-  let provider = new ethers.providers.Web3Provider(window.ethereum);
-  let signer;
-  console.log(provider);
-  
-  //--------------------
-  /*--------------------------------
-      WEB 3 IMPLEMENTATION
-  ---------------------------------*/
-  async function connectMetamask(){
-      await provider.send("eth_requestAccounts", []);
-      signer = await provider.getSigner();
-      //acc_address = await signer.getAddress();
-      console.log("Account address: ", await signer.getAddress());
-
-      //to add the signer address to the front end
-      //const head = document.getElementById('claimBtn');
-      //const element = document.createElement('button');
-      //element.innerText = `Welcome Player: ${await signer.getAddress()}`;
-      //element.setAttribute(
-        //  'style',
-         // 'background-color: #0f33ff; color: white; width: 600px; height: 50px; position: absolute; font-weight: bold; font-size: 1.1em; border-radius: 20px;',
-      //);
-      //document.body.insertBefore(element, head);
-
-
-      let myButton = document.getElementById('connect');
-      myButton.innerText = "Connected";
-      //-------------------------------------------
-        
-      const balance = await signer.getBalance();
-      const convertToEth = 1e18;
-      console.log("Account's Balance in ether is: ", balance.toString()/convertToEth);
-
-      //myButton.disabled = 'disabled';
-  }
-</script>
-<script>
-  async function claimTokens()
-  {
-    const runTokenContractAddress = "0x4F6607CA4C2C250D7f3730f68048ed214135FC06";
-    const runTokenContractAbi = [
-      "function mintTokens(address account, uint256 amount) public",
-    ];
-    const runTokenContract = new ethers.Contract(runTokenContractAddress, runTokenContractAbi, provider);
-    let convertToWei = 1000000000;
-    let amountToClaim = 1000000000 * convertToWei;
-    await runTokenContract.connect(signer).mintTokens(signer.getAddress(), amountToClaim.toString());
-  }
-</script>
   </body>
 </html>
