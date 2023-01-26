@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using UnityEngine.UI;
+
 
 public class CaptureScript : MonoBehaviour
 {
@@ -22,6 +24,11 @@ public class CaptureScript : MonoBehaviour
     private Animator yokaiAnimator;
 
     private Animator animator; 
+
+    //private GameObject yokaiCanvas;
+    //private Image yokaiUI;
+    //private Slider yokaiSliderUI;
+
     void Awake() 
     {
         isCapturing = false;   
@@ -37,6 +44,12 @@ public class CaptureScript : MonoBehaviour
         child = GameObject.FindWithTag("DemonEnemy");
         poschildx = child.transform.position.x;
         poschildz = child.transform.position.z;
+
+
+        //yokaiCanvas = GameObject.Find("YokaiBar");
+        //yokaiUI =  yokaiCanvas.GetComponentInChildren<Image>();
+        //yokaiSliderUI =  yokaiCanvas.GetComponentInChildren<Slider>();
+        
     }
     void FixedUpdate()
     {
@@ -79,11 +92,17 @@ public class CaptureScript : MonoBehaviour
             yokaiAnimator.SetBool("IsCapturing", true);
             CaptureEnemy(parent);
             isCapturing = true;
+            //yokaiUI.enabled = true;
+            //yokaiSliderUI.enabled = true;
+            //yokaiCanvas.SetActive(true);
 
         }
 
         if ( isCapturing && Input.GetKeyDown(KeyCode.Z))
         { 
+            //yokaiUI.enabled = false;
+             //yokaiSliderUI.enabled = false;
+            //yokaiCanvas.SetActive(false);
             UnCaptureProcess();
         }
         if(GetComponent<PlayerMovement>().currentHealth <= 0 ){

@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class MisteryBox : MonoBehaviour
 {
-
+    private void Start() {
+        
+    }
+    private void Update() {
+        
+    }
+/*
     private GameObject yokaiCanvas;
     private Image yokaiUI;
 
@@ -21,5 +27,5 @@ public class MisteryBox : MonoBehaviour
         yokaiUI.enabled = true;
             //Destroy(this.gameObject);
         } 
-    }
+    }*/
 }
