@@ -16,6 +16,7 @@ TagManager:
   - Collect
   - DestroyObject
   - EnemyPatroll
+  - GameLimits
   layers:
   - Default
   - TransparentFX

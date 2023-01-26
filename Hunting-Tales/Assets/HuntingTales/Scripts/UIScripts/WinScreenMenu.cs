@@ -11,9 +11,13 @@ public class WinScreenMenu : MonoBehaviour
     public GameObject player;
     public GameObject winScreen;
     public string activeScene;
+    public LeaderBoard leaderBoard;
+    public ScoreManager scoreManager;
+    public GameObject submitScoreButton;
     // Start is called before the first frame update
     void Start()
     {
+        submitScoreButton.SetActive(false);
         gameManager = GameObject.Find("GameManager");
         //player = GameObject.Find("Player");
         audioSource.enabled = true;
@@ -22,11 +26,16 @@ public class WinScreenMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(wasScoreSubmitted);
         if (gameManager.GetComponent<GameManager>().gameWon == true)
         {
             winScreen.SetActive(true);
-            StartCoroutine(PlayWinSound());
+            //StartCoroutine(PlayWinSound());
             Time.timeScale = 0.0f;
+        }
+        if (ScoreManager.canSubmitScore)
+        {
+            submitScoreButton.SetActive(true);
         }
     }
 
@@ -55,4 +64,21 @@ public class WinScreenMenu : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         audioSource.enabled = false;
     }
+
+    public void SubmitScore()
+    {
+        StartCoroutine(SubmitScoreCoRoutine());
+    }
+
+    IEnumerator SubmitScoreCoRoutine()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1f);
+        Debug.Log("call subroutine from player");
+        yield return leaderBoard.SubmitScoreRoutine(scoreManager.score);
+        ScoreManager.canSubmitScore = false;
+        submitScoreButton.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
 }

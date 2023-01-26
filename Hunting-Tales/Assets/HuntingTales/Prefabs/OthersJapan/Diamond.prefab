@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dddf598c9b55e2459d185989b88839e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
   collectSoundEffect: {fileID: 8300000, guid: e0cca81008cae974594a164f601e4bf1, type: 3}
 --- !u!65 &4303054368136586403
 BoxCollider:
